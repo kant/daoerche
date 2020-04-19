@@ -14,3 +14,6 @@ Front-End Learing
 
 - DesignPattern
     设计模式（各种设计模式的用途和js实现）
+
+- Library
+    库（有关前端的各种高赞开源库）
