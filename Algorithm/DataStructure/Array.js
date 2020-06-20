@@ -3,7 +3,7 @@
  * -------------------------------------
  */
 // 用一个临时变量存储，每次移动一位 空间复杂度满足O(1)
-var rotate = function(nums, k) {
+var rotate = function (nums, k) {
     for (let i = 0; i < k; i++) {
         let temp = nums[nums.length - 1];
         for (let j = nums.length - 2; j >= 0; j--) {
@@ -27,7 +27,7 @@ var rotate = function(nums, k) {
 /**
  * initialize your data structure here.
  */
-var MinStack = function() {
+var MinStack = function () {
     this.stack = [];
     this.stackMinHelp = [];
 };
@@ -36,7 +36,7 @@ var MinStack = function() {
  * @param {number} x
  * @return {void}
  */
-MinStack.prototype.push = function(x) {
+MinStack.prototype.push = function (x) {
     this.stack.push(x);
 
     if (this.getMin() === null || x <= this.getMin()) {
@@ -47,7 +47,7 @@ MinStack.prototype.push = function(x) {
 /**
  * @return {void}
  */
-MinStack.prototype.pop = function() {
+MinStack.prototype.pop = function () {
     const topVal = this.stack.pop();
 
     if (this.getMin() !== null && topVal === this.getMin()) {
@@ -58,14 +58,14 @@ MinStack.prototype.pop = function() {
 /**
  * @return {number}
  */
-MinStack.prototype.top = function() {
+MinStack.prototype.top = function () {
     return this.stack.length ? this.stack[this.stack.length - 1] : null;
 };
 
 /**
  * @return {number}
  */
-MinStack.prototype.getMin = function() {
+MinStack.prototype.getMin = function () {
     return this.stackMinHelp.length ? this.stackMinHelp[this.stackMinHelp.length - 1] : null;
 };
 
@@ -77,3 +77,24 @@ MinStack.prototype.getMin = function() {
  * var param_3 = obj.top()
  * var param_4 = obj.getMin()
  */
+
+
+/**
+ * 二分查找
+ */
+const binarySearch = (array, target) => {
+    const len = array.length;
+    let low = 0,
+        high = len - 1;
+
+    while (low <= high) {
+        const mid = Math.floor((high + low) / 2);
+        const midVal = array[mid];
+
+        if (midVal === target) return mid;
+        if (midVal < target) low = mid + 1;
+        if (midVal > target) high = mid - 1;
+    }
+
+    return -1;
+}
