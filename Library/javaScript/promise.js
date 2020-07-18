@@ -44,7 +44,8 @@ class MyPromise {
             }
         };
         // 这个其实也是加进promiseEnqueue微任务队列去执行的
-        run();
+        // 使用异步的方式是为了让当前注册的then方法都注册完再一次性扭转执行
+        setTimeout(run, 0);
     }
 
     _reject(val) {
@@ -62,10 +63,10 @@ class MyPromise {
                 cb = this._fulfilledQueues.shift();
             }
         };
-        run();
+        setTimeout(run, 0);
     }
 
-    then (onFulfilled, onRejected) {
+    then(onFulfilled, onRejected) {
         const { _value, _status } = this;
         // 返回一个新的Promise对象
         return new MyPromise((onFulfilledNext, onRejectedNext) => {
@@ -75,7 +76,7 @@ class MyPromise {
                     if (!isFunction(onFulfilled)) {
                         onFulfilledNext(value)
                     } else {
-                        let res =  onFulfilled(value);
+                        let res = onFulfilled(value);
                         if (res instanceof MyPromise) {
                             // 如果当前回调函数返回MyPromise对象，必须等待其状态改变后在执行下一个回调
                             res.then(onFulfilledNext, onRejectedNext)
@@ -89,6 +90,7 @@ class MyPromise {
                     onRejectedNext(err)
                 }
             };
+
             // 封装一个失败时执行的函数
             let rejected = error => {
                 try {
@@ -129,8 +131,40 @@ class MyPromise {
     }
 }
 
+MyPromise.all = function (list) {
+    return new MyPromise((resolve, reject) => {
+        const resList = [];
+        let resolveCount = 0;
+
+        for (let [i, p] of list.entries()) {
+            p.then(val => {
+                resList[i] = val;
+                resolveCount++;
+
+                if (resolveCount === list.length) {
+                    resolve(resList);
+                }
+            }, err => {
+                reject(err);
+            })
+        }
+    });
+}
+
+MyPromise.race = function (list) {
+    return new MyPromise((resolve, reject) => {
+        for (let [i, p] of list.entries()) {
+            p.then(val => {
+                resolve(val);
+            }, err => {
+                reject(err);
+            })
+        }
+    });
+}
+
 MyPromise.PENDING = 'PENDING';
 MyPromise.FULFILLED = 'FULFILLED';
 MyPromise.REJECTED = 'REJECTED';
 
-const p = new MyPromise(() => {});
+const p = new MyPromise(() => { });

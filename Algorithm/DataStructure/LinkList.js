@@ -17,6 +17,21 @@ var getIntersectionNode = function(headA, headB) {
 
     return pA;
 };
+// 我想的另一种解法，感觉这样比较好理解~
+var getIntersectionNode2 = function(headA, headB) {
+    let pA = headA;
+    let pB = headB;
+    let swapCount = 3;
+
+    while (pA && pB && swapCount) {
+        if (pA == pB) return pA;
+        
+        pA = pA.next || (swapCount-- && headB);
+        pB = pB.next || (swapCount-- && headA);
+    }
+
+    return null;
+};
 
 
 /**

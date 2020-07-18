@@ -90,24 +90,134 @@ class Tree {
 
         return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
     };
+
+    bfs (root, cb) {
+        const queue = [root];
+
+        while (queue.length) {
+            const node = queue.shift();
+
+            if (node) {
+                cb(node.val);
+
+                queue.push(node.left);
+                queue.push(node.right);
+            }
+        }
+    }
+
+    DLR (root, cb) {
+        if (!root) return;
+
+        cb(root.val);
+        this.DLR(root.left, cb);
+        this.DLR(root.right, cb);
+    }
+
+    LDR (root, cb) {
+        if (!root) return;
+
+        this.LDR(root.left, cb);
+        cb(root.val);
+        this.LDR(root.right, cb);
+    }
+
+    LRD (root, cb) {
+        if (!root) return;
+
+        this.LRD(root.left, cb);
+        this.LRD(root.right, cb);
+        cb(root.val);
+    }
+
+    iterationDLR (root, cb) {
+        const stack = [root];
+
+        while (stack.length) {
+            const node = stack.pop();
+
+            if (node instanceof Function) {
+                node();
+                continue;
+            }
+
+            if (node) {
+                stack.push(node.right);
+                stack.push(node.left);
+                stack.push(() => cb(node.val));
+            }
+        }
+    }
+
+    iterationLDR (root, cb) {
+        const stack = [root];
+
+        while (stack.length) {
+            const node = stack.pop();
+
+            if (node instanceof Function) {
+                node();
+                continue;
+            }
+
+            if (node) {
+                stack.push(node.right);
+                stack.push(() => cb(node.val));
+                stack.push(node.left);
+            }
+        }
+    }
+
+    iterationLRD (root, cb) {
+        const stack = [root];
+
+        while (stack.length) {
+            const node = stack.pop();
+
+            if (node instanceof Function) {
+                node();
+                continue;
+            }
+
+            if (node) {
+                stack.push(() => cb(node.val));
+                stack.push(node.right);
+                stack.push(node.left);
+            }
+        }
+    }
 }
 
 
 /**
  * Create Tree
  */
-const treeArray = [3, 9, 20, null, null, 15, 7];
+const treeArray = [3, 9, 20, null, 6, 15, 7];
 const tree = new Tree(treeArray);
 
 
 /**
  * Methods Test
  */
-const maxDepth = tree.maxDepth(tree.root);
-const minDepth = tree.minDepth(tree.root);
+// const maxDepth = tree.maxDepth(tree.root);
+// const minDepth = tree.minDepth(tree.root);
 
 
 /**
- * Check result
+ * bfs
  */
-console.log(minDepth);
+// tree.bfs(tree.root, console.log);
+
+/**
+ * DLR LDR LRD recursion
+ */
+// tree.DLR(tree.root, console.log);
+// tree.LDR(tree.root, console.log);
+tree.LRD(tree.root, console.log);
+
+/**
+ * DLR iteration
+ */
+// tree.iterationDLR(tree.root, console.log);
+// tree.iterationLDR(tree.root, console.log);
+tree.iterationLRD(tree.root, console.log);
