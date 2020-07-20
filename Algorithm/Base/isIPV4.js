@@ -12,5 +12,3 @@ const isIPV4 = ip => {
 
     return false;
 }
-
-console.log(isIPV4('1.2.3.40'));
