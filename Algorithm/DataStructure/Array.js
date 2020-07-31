@@ -101,8 +101,8 @@ const binarySearch = (array, target) => {
 
 /**
  * leetcode 35. 搜索插入位置
- * @param {*} nums 
- * @param {*} target 
+ * @param {*} nums
+ * @param {*} target
  */
 var searchInsert = function (nums, target) {
     let low = 0;
@@ -120,11 +120,11 @@ var searchInsert = function (nums, target) {
         }
     }
     /**
-     * 为什么返回low不会出错，思考最终low = high下标的时候，由于没有返回mid，则一定有 
+     * 为什么返回low不会出错，思考最终low = high下标的时候，由于没有返回mid，则一定有
      * […, lastNum, mid, nextNum, …]
      * target要么处于，lastNum - mid之间，此时会target < mid，high = mid - 1，但是我们应该插入到mid的位置，即low位置
      * target或者处于，mid - nextNum，此时会target > mid，low = mid + 1，没有错，我们这个时候确实应该插入到mid + 1的位置，即low
-     */ 
+     */
     return low;
 };
 
@@ -171,4 +171,21 @@ var commonChars = function(A) {
         for (let i = 0; i < charCount; i++) result.push(char);
     });
     return result;
+};
+
+
+/**
+ * @title Leetcode 121. 买卖股票的最佳时机
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    let maxProfit = 0;
+    let min = prices[0];
+    for (let i = 0; i < prices.length; i++) {
+        min = Math.min(prices[i], min);
+        maxProfit = Math.max(maxProfit, prices[i] - min);
+    }
+
+    return maxProfit;
 };
