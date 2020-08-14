@@ -167,4 +167,4 @@ MyPromise.PENDING = 'PENDING';
 MyPromise.FULFILLED = 'FULFILLED';
 MyPromise.REJECTED = 'REJECTED';
 
-const p = new MyPromise(() => { });
+let p = new MyPromise(() => { });
