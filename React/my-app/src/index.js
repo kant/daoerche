@@ -4,15 +4,15 @@ import './index.css';
 
 function Square(props) {
     return (
-        <button className="square" onClick={props.onClick}>
+        <button className={['square'].concat(props.highlight ? ['highlight'] : []).join(' ')} onClick={props.onClick}>
             {props.value}
         </button>
     )
 }
 
 class Board extends React.Component {
-    renderSquare(i) {
-        return <Square value={this.props.values[i]} onClick={() => this.props.onClick(i)}/>;
+    renderSquare(i, highlight) {
+        return <Square key={i} highlight={highlight} value={this.props.values[i]} onClick={() => this.props.onClick(i)}/>;
     }
 
     render() {
@@ -22,14 +22,15 @@ class Board extends React.Component {
             throw new Error('棋盘大小需为整数！');
         }
 
+        const boardStatus = this.props.boardStatus;
         const board = Array.from({length: len}).map((val, row) => {
             const oneRowItem = Array.from({length: len}).map((val, col) => {
                 const point = (row * 3) + col;
-                return (this.renderSquare(point));
+                return (this.renderSquare(point, boardStatus.line.includes(point)));
             });
 
             return (
-                <div className="board-row">
+                <div className="board-row" key={row}>
                     {oneRowItem}
                 </div>
             );
@@ -54,6 +55,7 @@ class Game extends React.Component {
                     point: -1
                 }
             ],
+            asc: true,
             stepNumber: 0,
             nextIsX: true
         }
@@ -62,7 +64,7 @@ class Game extends React.Component {
     handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const { values } = history[history.length - 1];
-        if (calculateWinner(values) || values[i]) {
+        if (calculateWinner(values).status !== 'CONTINUE' || values[i]) {
             return;
         }
 
@@ -88,13 +90,25 @@ class Game extends React.Component {
         });
     }
 
+    changeSort() {
+        this.setState({
+            asc: !this.state.asc
+        });
+    }
+
     render() {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
-        const { values } = history[history.length - 1];
-        const winner = calculateWinner(values);
-        const status = winner
-            ? 'Winner is: ' + winner
-            : 'Next player: ' + (this.state.nextIsX ? 'X' : 'O');
+        const {values} = history[history.length - 1];
+        const boardStatus = calculateWinner(values);
+
+        let status = '';
+        if (boardStatus.status === 'WINNER') {
+            status = 'Winner is: ' + boardStatus.winner;
+        } else if (boardStatus.status === 'TIE') {
+            status = 'TIE';
+        } else {
+            status = 'Next player: ' + (this.state.nextIsX ? 'X' : 'O');
+        }
 
         const moves = this.state.history.map((info, step) => {
             const { point } = info;
@@ -109,16 +123,15 @@ class Game extends React.Component {
             );
         });
 
-
-
         return (
             <div className="game">
                 <div className="game-board">
-                    <Board values={values} onClick={(i) => this.handleClick(i)}/>
+                    <Board values={values} boardStatus={boardStatus} onClick={(i) => this.handleClick(i)}/>
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
-                    <ol>{moves}</ol>
+                    <button onClick={() => this.changeSort()}>{ this.state.asc ? 'ascending' : 'descending' }</button>
+                    <ol>{this.state.asc ? moves : moves.reverse()}</ol>
                 </div>
             </div>
         );
@@ -136,13 +149,31 @@ function calculateWinner(squares) {
         [0, 4, 8],
         [2, 4, 6],
     ];
+    const result = {
+        status: 'CONTINUE',
+        line: [],
+        winner: ''
+    }
+
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
+            return Object.assign(result, {
+                status: 'WINNER',
+                line: [a, b, c],
+                winner: squares[a]
+            });
         }
     }
-    return null;
+
+    let isTie = true;
+    for (let i = 0; i < squares.length; i++) {
+        if (!squares[i]) {
+            isTie = false;
+            break;
+        }
+    }
+    return Object.assign(result, isTie ? { status: 'TIE'} : {});
 }
 
 // ========================================
