@@ -1,0 +1,30 @@
+<!-- @title: fingerprintjs 浏览器指纹测试 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fingerprintjs</title>
+</head>
+<body>
+<h2>fingerprintjs</h2>
+<script src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2/dist/fingerprint2.min.js"></script>
+<script>
+    if (window.requestIdleCallback) {
+        requestIdleCallback(function () {
+            //必须在v2.0语法提供options参数
+            Fingerprint2.getV18(function (result, components) {
+                console.log(result);//结果是哈希指纹
+                console.log(components);//组件是{key：'foo'的数组，值：'组件值'}
+            })
+        })
+    } else {
+        setTimeout(function () {
+            Fingerprint2.getV18(function (result, components) {
+                console.log(result);//结果是哈希指纹
+                console.log(components);//组件是{key：'foo'的数组，值：'组件值'}
+            })
+        }, 500)
+    }
+</script>
+</body>
+</html>
