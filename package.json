@@ -1,0 +1,27 @@
+{
+  "name": "daoerche",
+  "version": "1.0.0",
+  "description": "持续进行中",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node buildReadme.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daoerche/daoerche.git"
+  },
+  "author": "daoerche",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daoerche/daoerche/issues"
+  },
+  "homepage": "https://github.com/daoerche/daoerche#readme",
+  "devDependencies": {
+    "husky": "^4.3.0"
+  }
+}
