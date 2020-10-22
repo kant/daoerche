@@ -25,6 +25,8 @@ const quickSort = (arr, low, high) => {
     }
 };
 
+module.exports = quickSort;
+
 /**
  * 平均时间复杂度 O(n) = nlog(n)
  * Test
@@ -34,3 +36,4 @@ const arr = [5, 4, 3, 2, 9, 3, 6, 1, 6];
 console.log(arr);
 quickSort(arr, 0, arr.length - 1);
 console.log(arr);
+

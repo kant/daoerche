@@ -29,6 +29,8 @@ const heapSort = (arr) => {
     }
 };
 
+module.exports = heapSort;
+
 /**
  * 平均时间复杂度 O(n) = nlog(n)
  * Test
