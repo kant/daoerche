@@ -278,44 +278,312 @@ import './index.css';
 // -------------------------------------
 
 
-function WarningBanner(props) {
-    if (!props.warn) {
-        return null;
-    }
+// function WarningBanner(props) {
+//     if (!props.warn) {
+//         return null;
+//     }
+//
+//     return (
+//         <div className="warning">
+//             Warning!
+//         </div>
+//     );
+// }
+//
+// class Page extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {showWarning: true};
+//         this.handleToggleClick = this.handleToggleClick.bind(this);
+//     }
+//
+//     handleToggleClick() {
+//         this.setState(state => ({
+//             showWarning: !state.showWarning
+//         }));
+//     }
+//
+//     render() {
+//         return (
+//             <div>
+//                 <WarningBanner warn={this.state.showWarning} />
+//                 <button onClick={this.handleToggleClick}>
+//                     {this.state.showWarning ? 'Hide' : 'Show'}
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
+//
+// ReactDOM.render(
+//     <Page />,
+//     document.getElementById('root')
+// );
 
-    return (
-        <div className="warning">
-            Warning!
-        </div>
-    );
-}
 
-class Page extends React.Component {
+// 条件渲染
+// -------------------------------
+
+// function LoginButton(props) {
+//     return (
+//         <button onClick={props.onClick}>
+//             Login
+//         </button>
+//     );
+// }
+//
+// function LogoutButton(props) {
+//     return (
+//         <button onClick={props.onClick}>
+//             Logout
+//         </button>
+//     );
+// }
+//
+// class LoginControl extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.handleLoginClick = this.handleLoginClick.bind(this);
+//         this.handleLogoutClick = this.handleLogoutClick.bind(this);
+//         this.state = {isLoggedIn: false};
+//     }
+//
+//     handleLoginClick() {
+//         this.setState({isLoggedIn: true});
+//     }
+//
+//     handleLogoutClick() {
+//         this.setState({isLoggedIn: false});
+//     }
+//
+//     render() {
+//         const isLoggedIn = this.state.isLoggedIn;
+//         let button;
+//         if (isLoggedIn) {
+//             button = <LogoutButton onClick={this.handleLogoutClick} />;
+//         } else {
+//             button = <LoginButton onClick={this.handleLoginClick} />;
+//         }
+//
+//         return (
+//             <div>
+//                 <Greeting isLoggedIn={isLoggedIn} />
+//                 {button}
+//             </div>
+//         );
+//     }
+// }
+//
+// ReactDOM.render(
+//     <LoginControl />,
+//     document.getElementById('root')
+// );
+//
+// function Greeting(props) {
+//     const isLoggedIn = props.isLoggedIn;
+//     if (isLoggedIn) {
+//         return <h2>login</h2>;
+//     }
+//     return <h2>guest</h2>;
+// }
+//
+// ReactDOM.render(
+//     // Try changing to isLoggedIn={true}:
+//     <Greeting isLoggedIn={false} />,
+//     document.getElementById('root')
+// );
+
+
+// 列表 & Key
+// -----------------------------
+
+
+// const numbers = [1, 2, 3, 4, 5];
+// const listItems = numbers.map((number) =>
+//     <li>{number}</li>
+// );
+//
+// ReactDOM.render(
+//     <ul>{listItems}</ul>,
+//     document.getElementById('root')
+// );
+
+// function NumberList(props) {
+//     const numbers = props.numbers;
+//     const listItems = numbers.map((number) =>
+//         <li key={number.toString()}>{number}</li>
+//     );
+//     return (
+//         <ul>{listItems}</ul>
+//     );
+// }
+//
+// const numbers = [1, 2, 3, 4, 5];
+// ReactDOM.render(
+//     <NumberList numbers={numbers} />,
+//     document.getElementById('root')
+// );
+
+// 一个好的经验法则是：在 map() 方法中的元素需要设置 key 属性
+
+
+// 表单
+// ----------------------------
+
+
+class NameForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {showWarning: true};
-        this.handleToggleClick = this.handleToggleClick.bind(this);
+        this.state = {value: ''};
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleToggleClick() {
-        this.setState(state => ({
-            showWarning: !state.showWarning
-        }));
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('提交的名字: ' + this.state.value);
+        event.preventDefault();
     }
 
     render() {
         return (
-            <div>
-                <WarningBanner warn={this.state.showWarning} />
-                <button onClick={this.handleToggleClick}>
-                    {this.state.showWarning ? 'Hide' : 'Show'}
-                </button>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    名字:
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="提交" />
+            </form>
         );
     }
 }
 
-ReactDOM.render(
-    <Page />,
-    document.getElementById('root')
-);
+class EssayForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '请撰写一篇关于你喜欢的 DOM 元素的文章.'
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('提交的文章: ' + this.state.value);
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    文章:
+                    <textarea value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="提交" />
+            </form>
+        );
+    }
+}
+
+class FlavorForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: ['coconut', 'mango']};
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('你喜欢的风味是: ' + this.state.value);
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    选择你喜欢的风味:
+                    <select multiple={true} value={this.state.value} onChange={this.handleChange}>
+                        <option value="grapefruit">葡萄柚</option>
+                        <option value="lime">酸橙</option>
+                        <option value="coconut">椰子</option>
+                        <option value="mango">芒果</option>
+                    </select>
+                </label>
+                <input type="submit" value="提交" />
+            </form>
+        );
+    }
+}
+
+class Reservation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isGoing: true,
+            numberOfGuests: 2
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    render() {
+        return (
+            <form>
+                <label>
+                    参与:
+                    <input
+                        name="isGoing"
+                        type="checkbox"
+                        checked={this.state.isGoing}
+                        onChange={this.handleInputChange} />
+                </label>
+                <br />
+                <label>
+                    来宾人数:
+                    <input
+                        name="numberOfGuests"
+                        type="number"
+                        value={this.state.numberOfGuests}
+                        onChange={this.handleInputChange} />
+                </label>
+            </form>
+        );
+    }
+}
+
+ReactDOM.render(<input value="hi" />, document.getElementById('root'));
+
+setTimeout(function() {
+    ReactDOM.render(<input value={null} />, document.getElementById('root'));
+}, 1000);
+
+// ReactDOM.render(
+//     <Reservation />,
+//     document.getElementById('root')
+// );
