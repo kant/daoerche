@@ -277,7 +277,7 @@ list_tracks() {
   fi
   get_return
   return
-}
+}}
 
 # main
 
