@@ -431,159 +431,241 @@ import './index.css';
 // ----------------------------
 
 
-class NameForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
+// class NameForm extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {value: ''};
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+//         this.handleChange = this.handleChange.bind(this);
+//         this.handleSubmit = this.handleSubmit.bind(this);
+//     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
+//     handleChange(event) {
+//         this.setState({value: event.target.value});
+//     }
 
-    handleSubmit(event) {
-        alert('提交的名字: ' + this.state.value);
-        event.preventDefault();
-    }
+//     handleSubmit(event) {
+//         alert('提交的名字: ' + this.state.value);
+//         event.preventDefault();
+//     }
 
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    名字:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="提交" />
-            </form>
-        );
-    }
-}
+//     render() {
+//         return (
+//             <form onSubmit={this.handleSubmit}>
+//                 <label>
+//                     名字:
+//                     <input type="text" value={this.state.value} onChange={this.handleChange} />
+//                 </label>
+//                 <input type="submit" value="提交" />
+//             </form>
+//         );
+//     }
+// }
 
-class EssayForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: '请撰写一篇关于你喜欢的 DOM 元素的文章.'
-        };
+// class EssayForm extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             value: '请撰写一篇关于你喜欢的 DOM 元素的文章.'
+//         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+//         this.handleChange = this.handleChange.bind(this);
+//         this.handleSubmit = this.handleSubmit.bind(this);
+//     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
+//     handleChange(event) {
+//         this.setState({value: event.target.value});
+//     }
 
-    handleSubmit(event) {
-        alert('提交的文章: ' + this.state.value);
-        event.preventDefault();
-    }
+//     handleSubmit(event) {
+//         alert('提交的文章: ' + this.state.value);
+//         event.preventDefault();
+//     }
 
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    文章:
-                    <textarea value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="提交" />
-            </form>
-        );
-    }
-}
+//     render() {
+//         return (
+//             <form onSubmit={this.handleSubmit}>
+//                 <label>
+//                     文章:
+//                     <textarea value={this.state.value} onChange={this.handleChange} />
+//                 </label>
+//                 <input type="submit" value="提交" />
+//             </form>
+//         );
+//     }
+// }
 
-class FlavorForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ['coconut', 'mango']};
+// class FlavorForm extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {value: ['coconut', 'mango']};
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+//         this.handleChange = this.handleChange.bind(this);
+//         this.handleSubmit = this.handleSubmit.bind(this);
+//     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
+//     handleChange(event) {
+//         this.setState({value: event.target.value});
+//     }
 
-    handleSubmit(event) {
-        alert('你喜欢的风味是: ' + this.state.value);
-        event.preventDefault();
-    }
+//     handleSubmit(event) {
+//         alert('你喜欢的风味是: ' + this.state.value);
+//         event.preventDefault();
+//     }
 
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    选择你喜欢的风味:
-                    <select multiple={true} value={this.state.value} onChange={this.handleChange}>
-                        <option value="grapefruit">葡萄柚</option>
-                        <option value="lime">酸橙</option>
-                        <option value="coconut">椰子</option>
-                        <option value="mango">芒果</option>
-                    </select>
-                </label>
-                <input type="submit" value="提交" />
-            </form>
-        );
-    }
-}
+//     render() {
+//         return (
+//             <form onSubmit={this.handleSubmit}>
+//                 <label>
+//                     选择你喜欢的风味:
+//                     <select multiple={true} value={this.state.value} onChange={this.handleChange}>
+//                         <option value="grapefruit">葡萄柚</option>
+//                         <option value="lime">酸橙</option>
+//                         <option value="coconut">椰子</option>
+//                         <option value="mango">芒果</option>
+//                     </select>
+//                 </label>
+//                 <input type="submit" value="提交" />
+//             </form>
+//         );
+//     }
+// }
 
-class Reservation extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isGoing: true,
-            numberOfGuests: 2
-        };
+// class Reservation extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             isGoing: true,
+//             numberOfGuests: 2
+//         };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-    }
+//         this.handleInputChange = this.handleInputChange.bind(this);
+//     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+//     handleInputChange(event) {
+//         const target = event.target;
+//         const value = target.type === 'checkbox' ? target.checked : target.value;
+//         const name = target.name;
 
-        this.setState({
-            [name]: value
-        });
-    }
+//         this.setState({
+//             [name]: value
+//         });
+//     }
 
-    render() {
-        return (
-            <form>
-                <label>
-                    参与:
-                    <input
-                        name="isGoing"
-                        type="checkbox"
-                        checked={this.state.isGoing}
-                        onChange={this.handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    来宾人数:
-                    <input
-                        name="numberOfGuests"
-                        type="number"
-                        value={this.state.numberOfGuests}
-                        onChange={this.handleInputChange} />
-                </label>
-            </form>
-        );
-    }
-}
+//     render() {
+//         return (
+//             <form>
+//                 <label>
+//                     参与:
+//                     <input
+//                         name="isGoing"
+//                         type="checkbox"
+//                         checked={this.state.isGoing}
+//                         onChange={this.handleInputChange} />
+//                 </label>
+//                 <br />
+//                 <label>
+//                     来宾人数:
+//                     <input
+//                         name="numberOfGuests"
+//                         type="number"
+//                         value={this.state.numberOfGuests}
+//                         onChange={this.handleInputChange} />
+//                 </label>
+//             </form>
+//         );
+//     }
+// }
 
-ReactDOM.render(<input value="hi" />, document.getElementById('root'));
+// ReactDOM.render(<input value="hi" />, document.getElementById('root'));
 
-setTimeout(function() {
-    ReactDOM.render(<input value={null} />, document.getElementById('root'));
-}, 1000);
+// setTimeout(function() {
+//     ReactDOM.render(<input value={null} />, document.getElementById('root'));
+// }, 1000);
 
 // ReactDOM.render(
 //     <Reservation />,
 //     document.getElementById('root')
 // );
+
+
+// 组合 vs 继承
+// -----------------------------
+
+//   function FancyBorder(props) {
+//     return (
+//       <div className={'FancyBorder FancyBorder-' + props.color}>
+//         {props.children}
+//       </div>
+//     );
+//   }
+
+//   function WelcomeDialog() {
+//     return (
+//       <FancyBorder color="blue">
+//         <h1 className="Dialog-title">
+//           Welcome
+//         </h1>
+//         <p className="Dialog-message">
+//           Thank you for visiting our spacecraft!
+//         </p>
+//       </FancyBorder>
+//     );
+//   }
+
+//   function Dialog(props) {
+//     return (
+//       <FancyBorder color="blue">
+//         <h1 className="Dialog-title">
+//           {props.title}
+//         </h1>
+//         <p className="Dialog-message">
+//           {props.message}
+//         </p>
+//         {props.children}
+//       </FancyBorder>
+//     );
+//   }
+  
+//   class SignUpDialog extends React.Component {
+//     constructor(props) {
+//       super(props);
+//       this.handleChange = this.handleChange.bind(this);
+//       this.handleSignUp = this.handleSignUp.bind(this);
+//       this.state = {login: ''};
+//     }
+  
+//     render() {
+//       return (
+//         <Dialog title="Mars Exploration Program"
+//                 message="How should we refer to you?">
+//           <input value={this.state.login}
+//                  onChange={this.handleChange} />
+//           <button onClick={this.handleSignUp}>
+//             Sign Me Up!
+//           </button>
+//         </Dialog>
+//       );
+//     }
+  
+//     handleChange(e) {
+//       this.setState({login: e.target.value});
+//     }
+  
+//     handleSignUp() {
+//       alert(`Welcome aboard, ${this.state.login}!`);
+//     }
+//   }
+
+// ReactDOM.render(
+//     <SignUpDialog />,
+//     document.getElementById('root')
+// );
+
+
+// React 哲学
+// ----------------------------
+
+// 但你如何确定应该将哪些部分划分到一个组件中呢？你可以将组件当作一种函数或者是对象来考虑，根据单一功能原则来判定组件的范围。也就是说，一个组件原则上只能负责一个功能。如果它需要负责更多的功能，这时候就应该考虑将它拆分成更小的组件。
+
+
