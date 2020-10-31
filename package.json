@@ -8,7 +8,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node buildReadme.js"
+      "pre-commit": "node BuildReadMe"
     }
   },
   "repository": {
@@ -20,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/daoerche/daoerche/issues"
   },
-  "homepage": "https://github.com/daoerche/daoerche#readme",
-  "devDependencies": {
-    "husky": "^4.3.0"
-  }
+  "homepage": "https://github.com/daoerche/daoerche#readme"
 }
