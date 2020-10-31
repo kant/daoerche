@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/daoerche/daoerche#readme",
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0",  
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^4.3.0"
   },
   "config": {
