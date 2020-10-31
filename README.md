@@ -1,19 +1,39 @@
+
 # daoerche
-持续进行中
+<div style="text-align: center;">
+    <img src="./BuildReadMe/img/log.jpg" width="600px">
+</div>
 
 ## What it is?
 Front-End Learing
 
-## Contents
+## Commit standard
+```js
+npm i && npm run cm
+```
 
-- DataStructure
-    数据结构（用js实现的数据结构和使用）
+## Title generation rules
+```js
+const dirTitleHandle = (path) => {
+    if (hasPackageJsonFile) {
+        // get!
+        const titleCtx = packageJsonFile.name;
+    } else {
+        for (file in path) {
+            fileIsDir ? dirTitleHandle(filePath) : parseFileCtx(filePath);
+        }
+    }
+}
 
-- Algorithm
-    算法（各个场景的算法应用和js实现）
+const parseFileCtx = (filePath) => {
+    const titleReg = /@title: (.*)/;
+    const ctxStr = fileCtx;
 
-- DesignPattern
-    设计模式（各种设计模式的用途和js实现）
+    const found = ctxStr.match(titleReg);
+    // get!
+    const titleCtx = found[1];
+}
 
-- Library
-    库（自己模仿实现的各种小库或者源码解析）
+dirTitleHandle(rootPath);
+```
+
