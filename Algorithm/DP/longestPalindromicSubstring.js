@@ -1,5 +1,5 @@
 /**
- * @title leetcode 5. 最长回文子串
+ * @title Leetcode: 5. 最长回文子串
  */
 /**
  * @param {string} s
