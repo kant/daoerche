@@ -2,7 +2,7 @@
 Front-End Learing
 
 ## Commit standard
-```js
+```shell
 npm i && npm run cm
 ```
 
