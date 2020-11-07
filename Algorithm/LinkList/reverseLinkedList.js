@@ -73,10 +73,13 @@ const printLink = (head) => {
     console.log(output);
 }
 
-console.log('original');
-printLink(head);
+// console.log('original');
+// printLink(head);
 
 const reverseHead = reverseList2(head);
 
-console.log('reverse');
-printLink(reverseHead);
+// console.log('reverse');
+// printLink(reverseHead);
+
+
+module.exports = reverseList1;
