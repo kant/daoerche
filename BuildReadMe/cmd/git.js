@@ -1,11 +1,17 @@
 const execSync = require('child_process').execSync;
 
-module.exports = {
-    gitAddAllFile() {
-        return execSync('git add -A');
-    },
-
-    gitStatusList() {
-        return execSync('git status --porcelain');
+tryExecSync = (cb) => {
+    let result = '';
+    try {
+        result = cb();
+    } catch (e) {
+        result = e.message;
     }
+    return result;
+}
+
+module.exports = {
+    gitAddAllFile: () => tryExecSync(() => execSync('git add -A')),
+
+    gitStatusList: () => tryExecSync(() => execSync('git status --porcelain'))
 }
