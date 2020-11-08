@@ -1,14 +1,5 @@
 const execSync = require('child_process').execSync;
-
-tryExecSync = (cb) => {
-    let result = '';
-    try {
-        result = cb();
-    } catch (e) {
-        result = e.message;
-    }
-    return result;
-}
+const { tryExecSync } = require('./utils');
 
 module.exports = {
     gitAddAllFile: () => tryExecSync(() => execSync('git add -A')),

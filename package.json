@@ -5,12 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cm": "cz"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node BuildReadMe"
-    }
+    "postinstall": "npx commitizen init cz-conventional-changelog --save-dev --save-exact",
+    "cm": "node BuildReadMe"
   },
   "repository": {
     "type": "git",
@@ -23,6 +19,7 @@
   },
   "homepage": "https://github.com/daoerche/daoerche#readme",
   "devDependencies": {
+    "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^4.3.0"
   },

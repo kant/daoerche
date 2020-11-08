@@ -1,12 +1,9 @@
 const path = require('path');
 const fs = require('fs');
-const { gitAddAllFile, gitStatusList } = require("./cmd/git");
+const { gitAddAllFile, gitStatusList } = require('./cmd/git');
+const { cz } = require('./cmd/npx');
 
 console.log('Build README:');
-
-console.log('Start add all files.');
-gitAddAllFile();
-console.log('Add files end.');
 
 const filesStatus = gitStatusList().toString().trim();
 console.log('filesStatus:\n', filesStatus);
@@ -28,3 +25,5 @@ console.log('Build readme end.');
 console.log('Add Readme files');
 gitAddAllFile();
 console.log('Finish!!!');
+
+cz();
