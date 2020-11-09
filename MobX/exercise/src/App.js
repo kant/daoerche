@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {observable, action, autorun, computed} from 'mobx';
+import {observable, action, autorun, computed, extendObservable, reaction} from 'mobx';
 import { observer } from "mobx-react";
 
 const appState = observable({
@@ -9,12 +9,12 @@ const appState = observable({
 });
 
 const doubleTimer = computed(() => {
-    console.log('doubleTimer emit!');
+    // console.log('doubleTimer emit!');
     return appState.timer * 2;
 });
 
 const nameTrans = computed(() => {
-    console.log('nameTrans emit!');
+    // console.log('nameTrans emit!');
     return appState.name + 'che';
 })
 
@@ -24,9 +24,9 @@ appState.resetTimer = action(function reset() {
 
 autorun(function () {
     if (appState.timer > 10) {
-        console.log('timer is > 10:', nameTrans.get());
+        // console.log('timer is > 10:', nameTrans.get());
     }
-    console.log(appState.timer, doubleTimer.get());
+    // console.log(appState.timer, doubleTimer.get());
 });
 
 setInterval(action(function tick() {
@@ -39,7 +39,7 @@ setInterval(action(function tick() {
 const App = observer(({ appState, doubleTimer }) => {
     const onReset = () => {
         appState.resetTimer();
-        console.log('resetTimer complate!');
+        // console.log('resetTimer complate!');
     }
 
     const renderTimer = () => {
@@ -66,11 +66,11 @@ var todos = observable([
 ]);
 
 autorun(() => {
-    console.log("Remaining:", todos
-        .filter(todo => !todo.completed)
-        .map(todo => todo.title)
-        .join(", ")
-    );
+    // console.log("Remaining:", todos
+    //     .filter(todo => !todo.completed)
+    //     .map(todo => todo.title)
+    //     .join(", ")
+    // );
 });
 
 todos[0].completed = false;
@@ -81,3 +81,35 @@ todos[2] = { title: 'Take a nap', completed: false };
 
 todos.shift();
 // 输出: 'Remaining: Make coffee, Take a nap'
+
+const cityName = observable.box("Vienna");
+
+// console.log(cityName.get());
+// 输出 'Vienna'
+
+cityName.observe_(function(change) {
+    // console.log(change.oldValue, "->", change.newValue);
+});
+
+cityName.set("Amsterdam");
+
+// 引用可观察性
+
+const refObj = extendObservable({
+    message: "Hello world",
+    author: null
+}, {
+    author: observable.ref,
+    message: observable
+});
+
+console.log('refObj', refObj);
+
+reaction(() => refObj, (data) => {
+    console.log('refObj change', refObj);
+});
+
+// refObj.message = '生日快乐！！智~';
+// refObj.author = {};
+// refObj.author.name = 'daoerche';
+
