@@ -371,30 +371,54 @@ fetchProjects();
 //
 // const disposer = autorun(() => console.log(clock.getTime()));
 
-const theme = observable({
-    backgroundColor: "#ffffff"
+// const theme = observable({
+//     backgroundColor: "#ffffff"
+// });
+//
+// const disposer1 = observe(theme, (change) => {
+//     console.log(change.type, change.name, "from", change.oldValue, "to", change.object[change.name]);
+// });
+//
+// const disposer2 = intercept(theme, "backgroundColor", change => {
+//     if (!change.newValue) {
+//         // 忽略取消设置背景颜色
+//         return null;
+//     }
+//     if (change.newValue.length === 6) {
+//         // 补全缺少的 '#' 前缀
+//         change.newValue = '#' + change.newValue;
+//         return change;
+//     }
+//     if (change.newValue.length === 7) {
+//         // 这一定是格式正确的颜色代码！
+//         return change;
+//     }
+//     if (change.newValue.length > 10) disposer2(); // 不再拦截今后的任何变化
+//     throw new Error("This doesn't like a color at all: " + change.newValue);
+// });
+//
+// theme.backgroundColor = '121212';
+
+
+const person = observable({
+    name: 'daoer111',
+    age: 25,
+    child: {
+        name: 'daoer222',
+        age: 26
+    }
 });
 
-const disposer1 = observe(theme, (change) => {
-    console.log(change.type, change.name, "from", change.oldValue, "to", change.object[change.name]);
+const child = person.child;
+const name = computed(() => {
+    console.log('computed emit!!!');
+    return child.name;
 });
 
-const disposer2 = intercept(theme, "backgroundColor", change => {
-    if (!change.newValue) {
-        // 忽略取消设置背景颜色
-        return null;
-    }
-    if (change.newValue.length === 6) {
-        // 补全缺少的 '#' 前缀
-        change.newValue = '#' + change.newValue;
-        return change;
-    }
-    if (change.newValue.length === 7) {
-        // 这一定是格式正确的颜色代码！
-        return change;
-    }
-    if (change.newValue.length > 10) disposer2(); // 不再拦截今后的任何变化
-    throw new Error("This doesn't like a color at all: " + change.newValue);
+autorun(() => {
+    console.log(name.get());
 });
 
-theme.backgroundColor = '121212';
+person.name = 'daoer-change111';
+person.child = { name: 'daoer' };
+person.child.age = 12;
