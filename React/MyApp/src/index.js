@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
 
 // function Square(props) {
 //     return (
@@ -626,7 +627,7 @@ import './index.css';
 //       </FancyBorder>
 //     );
 //   }
-  
+
 //   class SignUpDialog extends React.Component {
 //     constructor(props) {
 //       super(props);
@@ -634,7 +635,7 @@ import './index.css';
 //       this.handleSignUp = this.handleSignUp.bind(this);
 //       this.state = {login: ''};
 //     }
-  
+
 //     render() {
 //       return (
 //         <Dialog title="Mars Exploration Program"
@@ -647,11 +648,11 @@ import './index.css';
 //         </Dialog>
 //       );
 //     }
-  
+
 //     handleChange(e) {
 //       this.setState({login: e.target.value});
 //     }
-  
+
 //     handleSignUp() {
 //       alert(`Welcome aboard, ${this.state.login}!`);
 //     }
@@ -668,4 +669,204 @@ import './index.css';
 
 // 但你如何确定应该将哪些部分划分到一个组件中呢？你可以将组件当作一种函数或者是对象来考虑，根据单一功能原则来判定组件的范围。也就是说，一个组件原则上只能负责一个功能。如果它需要负责更多的功能，这时候就应该考虑将它拆分成更小的组件。
 
+// 代码分割
+//
+// const MyHeader = React.lazy(() => {
+//     const com = import('./components/header')
+//     return new Promise(res => {
+//         setTimeout(() => {
+//             res(com);
+//         }, 1000)
+//     })
+// });
+//
+// // import MyHeader from "./components/header";
+//
+// const Main = () => (
+//     <Suspense fallback={<div>Loading...</div>}>
+//         <MyHeader />
+//     </Suspense>
+// )
+//
+// ReactDOM.render(
+//     <Main />,
+//     document.getElementById('root')
+// )
+
+// Context
+
+// Context 可以让我们无须明确地传遍每一个组件，就能将值深入传递进组件树。
+// 为当前的 theme 创建一个 context（“light”为默认值）。
+// const ThemeContext = React.createContext('light');
+// class App extends React.Component {
+//     render() {
+//         // 使用一个 Provider 来将当前的 theme 传递给以下的组件树。
+//         // 无论多深，任何组件都能读取这个值。
+//         // 在这个例子中，我们将 “dark” 作为当前的值传递下去。
+//         return (
+//             <ThemeContext.Provider value="dark">
+//                 <Toolbar />
+//             </ThemeContext.Provider>
+//         );
+//     }
+// }
+//
+// // 中间的组件再也不必指明往下传递 theme 了。
+// function Toolbar() {
+//     return (
+//         <div>
+//             {ThemedHeader()}
+//             <ThemedButton />
+//         </div>
+//     );
+// }
+//
+// const ThemedHeader = (...rest) => {
+//     if (rest.length > 0) {
+//         const value = rest[0];
+//         return (
+//             <h1>{value} Theme!!!</h1>
+//         )
+//     }
+//
+//     return (
+//         <ThemeContext.Consumer>
+//             {value => ThemedHeader(value)}
+//         </ThemeContext.Consumer>
+//     )
+// }
+//
+// class ThemedButton extends React.Component {
+//     // 指定 contextType 读取当前的 theme context。
+//     // React 会往上找到最近的 theme Provider，然后使用它的值。
+//     // 在这个例子中，当前的 theme 值为 “dark”。
+//     static contextType = ThemeContext;
+//     render() {
+//         return <Button theme={this.context} />;
+//     }
+// }
+//
+// const Button = (props) => {
+//     return <button>{props.theme}</button>
+// }
+//
+// ReactDOM.render(
+//     <App />,
+//     document.getElementById('root')
+// )
+
+
+// import {ThemeContext, themes} from './components/theme-context';
+// import ThemeTogglerButton from './components/theme-toggler-button';
+//
+// class App extends React.Component {
+//     constructor(props) {
+//         super(props);
+//
+//         this.toggleTheme = () => {
+//             this.setState(state => ({
+//                 theme:
+//                     state.theme === themes.dark
+//                         ? themes.light
+//                         : themes.dark,
+//             }));
+//         };
+//
+//         // State 也包含了更新函数，因此它会被传递进 context provider。
+//         this.state = {
+//             theme: themes.light,
+//             toggleTheme: this.toggleTheme,
+//         };
+//     }
+//
+//     render() {
+//         // 整个 state 都被传递进 provider
+//         return (
+//             <ThemeContext.Provider value={this.state}>
+//                 <Content />
+//             </ThemeContext.Provider>
+//         );
+//     }
+// }
+//
+// class Content extends React.Component {
+//     render() {
+//         const { theme, toggleTheme } = this.context;
+//
+//         return (
+//             <button          onClick={toggleTheme}
+//                              style={{backgroundColor: theme.background}}>
+//
+//                 Toggle Theme
+//             </button>
+//         )
+//     }
+// }
+//
+// Content.contextType = ThemeContext;
+//
+// // function Content() {
+// //     return (
+// //         <div>
+// //             <ThemeTogglerButton />
+// //         </div>
+// //     );
+// // }
+//
+// ReactDOM.render(<App />, document.getElementById('root'));
+
+
+// 错误边界
+
+// class ErrorBoundary extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = { hasError: false };
+//     }
+//
+//     static getDerivedStateFromError(error) {
+//         // 更新 state 使下一次渲染能够显示降级后的 UI
+//         return { hasError: true };
+//     }
+//
+//     componentDidCatch(error, errorInfo) {
+//         // 你同样可以将错误日志上报给服务器
+//         console.log('componentDidCatch', error, errorInfo);
+//     }
+//
+//     render() {
+//         if (this.state.hasError) {
+//             // 你可以自定义降级后的 UI 并渲染
+//             return <h1>Something went wrong.</h1>;
+//         }
+//
+//         return this.props.children;
+//     }
+// }
+//
+// const App = () => {
+//     const ctx = (
+//         <h1>This is ErrorBoundary</h1>
+//     );
+//
+//     return (
+//         <ErrorBoundary>
+//             { ctx }
+//         </ErrorBoundary>
+//     )
+// };
+//
+// ReactDOM.render(<App />, document.getElementById('root'));
+
+// Refs转发
+
+// const FancyButton = React.forwardRef((props, ref) => (
+//     <button ref={ref} className="FancyButton">
+//         {props.children}
+//     </button>
+// ));
+//
+// // 你可以直接获取 DOM button 的 ref：
+// const ref = React.createRef();
+// <FancyButton ref={ref}>Click me!</FancyButton>;
 
