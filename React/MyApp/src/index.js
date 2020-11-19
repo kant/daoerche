@@ -870,3 +870,30 @@ import './index.css';
 // const ref = React.createRef();
 // <FancyButton ref={ref}>Click me!</FancyButton>;
 
+// fragments
+
+function Glossary(props) {
+    return (
+        <dl>
+            {props.items.map(item => (
+                // 没有`key`，React 会发出一个关键警告
+                <React.Fragment key={item.id}>
+                    <dt>{item.term}</dt>
+                    <dd>{item.description}</dd>
+                </React.Fragment>
+            ))}
+        </dl>
+    );
+}
+
+const arr = [{
+    id: 1,
+    term: 'daoer',
+    description: 'name'
+}, {
+    id: 2,
+    term: 'j',
+    description: 'name2'
+}];
+
+ReactDOM.render(<Glossary items={arr}/>, document.getElementById('root'))
