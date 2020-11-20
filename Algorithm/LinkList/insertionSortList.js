@@ -19,26 +19,19 @@ const insertionSortList = function(head) {
     let p = emptyNode.next;
     while (p.next) {
         let cur = emptyNode;
-        while (p.next.val > cur.next.val) {
+        while (cur.next !== p.next && p.next.val > cur.next.val) {
             cur = cur.next;
+        }
 
-            if (cur.next === p.next) {
-                p = p.next;
-                break;
-            }
+        if (cur.next === p.next) {
+            p = p.next;
+            continue;
         }
 
         let t = p.next;
         p.next = p.next.next;
         t.next = cur.next;
         cur.next = t;
-
-        // let next = p.next.next;
-
-        // p.next.next = cur.next;
-        // cur.next = p;
-
-        // p.next = next;
     }
 
     return emptyNode.next;
