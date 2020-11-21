@@ -38,6 +38,37 @@ const insertionSortList = function(head) {
 };
 
 
+const insertionSortList2 = function(head) {
+    if (!head) return null;
+
+    const dummyHead = new ListNode('');
+    dummyHead.next = head;
+
+    let lastSorted = dummyHead.next;
+    let cur = lastSorted.next;
+    while (cur) {
+        if (cur.val >= lastSorted.val) {
+            lastSorted = lastSorted.next;
+            cur = lastSorted.next;
+            continue;
+        }
+
+        let p = dummyHead;
+        while (cur.val >= p.next.val) {
+            p = p.next;
+        }
+
+        const q = cur.next;
+        cur.next = p.next;
+        p.next = cur;
+        lastSorted.next = q;
+        cur = lastSorted.next;
+    }
+
+    return dummyHead.next;
+};
+
+
 function ListNode(val) {
     this.val = val;
     this.next = null;
@@ -72,4 +103,4 @@ const printLink = (head) => {
 }
 
 printLink(head);
-printLink(insertionSortList(head));
+printLink(insertionSortList2(head));
