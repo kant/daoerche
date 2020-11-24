@@ -15,8 +15,8 @@ const createCompleteBinaryTree = (...nodeVals) => {
     const nodes = nodeVals.map(val => new TreeNode(val));
     for (let i = 0, len = nodes.length; i < len; i++) {
         const node = nodes[i];
-        const leftNodeIdx = i * 2;
-        const rightNodeIdx = i * 2 + 1;
+        const leftNodeIdx = i * 2 + 1;
+        const rightNodeIdx = i * 2 + 2;
 
         if (leftNodeIdx >= len) continue;
         node.left = nodes[leftNodeIdx];
