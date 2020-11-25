@@ -988,41 +988,110 @@ import './index.css';
 
 // 不使用ES6
 
-var SetIntervalMixin = {
-    componentWillMount: function() {
-        this.intervals = [];
-    },
-    setInterval: function() {
-        this.intervals.push(setInterval.apply(null, arguments));
-    },
-    componentWillUnmount: function() {
-        this.intervals.forEach(clearInterval);
+// var SetIntervalMixin = {
+//     componentWillMount: function() {
+//         this.intervals = [];
+//     },
+//     setInterval: function() {
+//         this.intervals.push(setInterval.apply(null, arguments));
+//     },
+//     componentWillUnmount: function() {
+//         this.intervals.forEach(clearInterval);
+//     }
+// };
+//
+// var createReactClass = require('create-react-class');
+//
+// var TickTock = createReactClass({
+//     mixins: [SetIntervalMixin], // 使用 mixin
+//     getInitialState: function() {
+//         return {seconds: 0};
+//     },
+//     componentDidMount: function() {
+//         this.setInterval(this.tick, 1000); // 调用 mixin 上的方法
+//     },
+//     tick: function() {
+//         this.setState({seconds: this.state.seconds + 1});
+//     },
+//     render: function() {
+//         return (
+//             <p>
+//                 React has been running for {this.state.seconds} seconds.
+//             </p>
+//         );
+//     }
+// });
+
+// ReactDOM.render(
+//     <TickTock />,
+//     document.getElementById('root')
+// );
+
+// 不适用jsx
+
+// class Hello extends React.Component {
+//     render() {
+//         return React.createElement('div', null, `Hello ${this.props.toWhat}`);
+//     }
+// }
+//
+// ReactDOM.render(
+//     React.createElement(Hello, {toWhat: 'World'}, null),
+//     document.getElementById('root')
+// );
+
+// Refs 和 Dom
+
+class CustomTextInput extends React.Component {
+    constructor(props) {
+        super(props);
+        // 创建一个 ref 来存储 textInput 的 DOM 元素
+        this.textInput = React.createRef();
+        this.focusTextInput = this.focusTextInput.bind(this);
     }
-};
 
-var createReactClass = require('create-react-class');
+    focusTextInput() {
+        // 直接使用原生 API 使 text 输入框获得焦点
+        // 注意：我们通过 "current" 来访问 DOM 节点
+        this.textInput.current.focus();
+    }
 
-var TickTock = createReactClass({
-    mixins: [SetIntervalMixin], // 使用 mixin
-    getInitialState: function() {
-        return {seconds: 0};
-    },
-    componentDidMount: function() {
-        this.setInterval(this.tick, 1000); // 调用 mixin 上的方法
-    },
-    tick: function() {
-        this.setState({seconds: this.state.seconds + 1});
-    },
-    render: function() {
+    render() {
+        // 告诉 React 我们想把 <input> ref 关联到
+        // 构造器里创建的 `textInput` 上
         return (
-            <p>
-                React has been running for {this.state.seconds} seconds.
-            </p>
+            <div>
+                <input
+                    type="text"
+                    ref={this.textInput} />
+                <input
+                    type="button"
+                    value="Focus the text input"
+                    onClick={this.focusTextInput}
+                />
+            </div>
         );
     }
-});
+}
+
+class AutoFocusTextInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.textInput = React.createRef();
+    }
+
+    componentDidMount() {
+        this.textInput.current.focusTextInput();
+    }
+
+    render() {
+        return (
+            <CustomTextInput ref={this.textInput} />
+        );
+    }
+}
 
 ReactDOM.render(
-    <TickTock />,
+    <AutoFocusTextInput />,
     document.getElementById('root')
 );
