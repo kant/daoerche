@@ -109,6 +109,7 @@ const traverseDir = (dirPath, indent) => {
 
 }
 
+// 构建所有源码Title信息到 codeTitleTree 对象
 const traverseCodeDir = () => {
     const codePaths = fs.readdirSync(paths.rootPath);
     codePaths.forEach(file => {
@@ -120,7 +121,10 @@ const traverseCodeDir = () => {
     })
 }
 
-const traverseTitleItem = (root, indent = 0) => {
+// 遍历 codeTitleTree 对象提取有用信息输出
+const traverseTitleItem = (root = codeTitleTree, indent = 0) => {
+    if (!root) return;
+
     Object.keys(root).forEach(dir => {
         const node = root[dir];
         // 该节点没有详细信息，需要继续遍历
@@ -172,7 +176,7 @@ const commitAllFils = () => {
 
 const main = () => {
     traverseCodeDir();
-    outputItemInfo();
+    traverseTitleItem();
     createReadMeCtx();
     writeNewReadMe();
     addAllFiles();
