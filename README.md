@@ -45,7 +45,7 @@ const dirTitleHandle = (path) => {
 }
 
 const parseFileCtx = (filePath) => {
-    const titleReg = /@title: (.*)/;
+    const titleReg = /@title (.*)/;
     const ctxStr = fileCtx;
 
     const found = ctxStr.match(titleReg);
