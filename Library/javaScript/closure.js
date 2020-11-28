@@ -1,3 +1,7 @@
+/**
+ * @title 创建一个闭包
+ * @returns {function(): void}
+ */
 const createClosure = function () {
     const closureName = 'daoerche';
 

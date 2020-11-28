@@ -11,7 +11,7 @@ npm i && npm run cm
 const dirTitleHandle = (path) => {
     if (hasPackageJsonFile) {
         // get!
-        const titleCtx = packageJsonFile.name;
+        const titleCtx = packageJsonFile.description;
     } else {
         for (file in path) {
             fileIsDir ? dirTitleHandle(filePath) : parseFileCtx(filePath);

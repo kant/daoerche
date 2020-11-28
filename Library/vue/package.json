@@ -1,8 +1,8 @@
 {
-  "name": "i18n",
+  "name": "vue",
   "version": "1.0.0",
-  "description": "手动撸一个i18n构建方案",
-  "main": "index.js",
+  "description": "实现一个简单的Vue",
+  "main": "vue-defineReactive.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

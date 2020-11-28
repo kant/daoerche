@@ -16,4 +16,3 @@ var removeDuplicates = function(S) {
 
     return strArr.slice(0, top).join('');
 };
-

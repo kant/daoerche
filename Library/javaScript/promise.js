@@ -1,4 +1,5 @@
 /**
+ * @title 实现一个基本的Promise类
  * 感谢作者思路：
  * https://juejin.im/post/5b83cb5ae51d4538cc3ec354
  */

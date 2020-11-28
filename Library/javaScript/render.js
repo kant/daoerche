@@ -1,3 +1,7 @@
+/**
+ * @title 实现一个简单的模板渲染
+ */
+
 const template = `
     Hello {{ name }}, you age is {{ age + 6 }}.
     I like {{ girlfirend.name }}, she age is {{ girlfirend.age }}.

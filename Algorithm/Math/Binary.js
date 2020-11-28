@@ -1,5 +1,5 @@
 /**
- * @title: Leetcode 191. 位1的个数
+ * @title Leetcode 191. 位1的个数
  * @param {number} n - a positive integer
  * @return {number}
  */

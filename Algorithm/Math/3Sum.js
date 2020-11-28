@@ -1,5 +1,5 @@
 /**
- * @title: Leetcode 15. 3Sum
+ * @title Leetcode 15. 3Sum
  * @param {number[]} nums
  * @return {number[][]}
  */

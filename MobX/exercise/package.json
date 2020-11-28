@@ -1,5 +1,6 @@
 {
   "name": "exercise",
+  "description": "Mobx学习",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

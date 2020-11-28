@@ -1,5 +1,5 @@
 /**
- * 实现一个sleep函数
+ * @title 实现一个sleep函数
  */
 const sleep = timestamp => {
     const startTime = new Date().getTime();

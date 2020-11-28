@@ -1,3 +1,10 @@
+/**
+ * @title 快速排序
+ * @param arr
+ * @param low
+ * @param high
+ * @returns {*}
+ */
 const partition = (arr, low, high) => {
     const pivot = arr[low];
 

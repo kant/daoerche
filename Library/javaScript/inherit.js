@@ -1,3 +1,8 @@
+/**
+ * @title 写一个简单的继承
+ * @param name
+ * @constructor
+ */
 const Parent = function (name) {
     this.name = name;
 };

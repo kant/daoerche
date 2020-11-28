@@ -1,3 +1,7 @@
+/*
+ * @title 瞎几把临时测试文件
+ */
+
 // const fetch = (url, timeout) => {
 //     let xhr = new XMLHttpRequest();
 //     xhr.open('GET', url);

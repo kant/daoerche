@@ -1,3 +1,7 @@
+/**
+ * @title 选择排序
+ * @param arr
+ */
 const selectionSort = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         let minIdx = i;

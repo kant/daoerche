@@ -1,3 +1,8 @@
+/**
+ * @title 判断一个ip地址是否为ipv4
+ * @param ip
+ * @returns {boolean|*}
+ */
 const isIPV4 = ip => {
     const ipSubs = ip.split('.');
 
