@@ -57,7 +57,7 @@ dirTitleHandle(rootPath);
 ```
 
 
-Algorithm
+<pre>Algorithm
     Array
         containerWithMostWater.js:  Leetcode: 11. Container With Most Water
         containsDuplicate.js:  Leetcode: 217. 存在重复元素
@@ -153,4 +153,4 @@ Vue
     DrowIo: Vue的相关流程和架构图
 Webpack
     i18n: 手动撸一个i18n构建方案
-
+</pre>

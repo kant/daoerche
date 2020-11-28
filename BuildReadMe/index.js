@@ -153,8 +153,9 @@ const createReadMeCtx = () => {
     console.log('Start build readme file.');
     const titleMdCtx = fs.readFileSync(paths.titleMdPath, 'utf8');
     const desMdCtx = fs.readFileSync(paths.descriptionMdPath, 'utf8');
+    const codeTitleMdCtx = `<pre>${codeTitleCtx}</pre>`;
 
-    const readMeCtx = `\n${titleMdCtx}\n\n${desMdCtx}\n\n${codeTitleCtx}\n`;
+    const readMeCtx = `\n${titleMdCtx}\n\n${desMdCtx}\n\n${codeTitleMdCtx}\n`;
     return readMeCtx;
 }
 
