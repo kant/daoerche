@@ -72,6 +72,7 @@ dirTitleHandle(rootPath);
         maxProfit.js:  Leetcode 121. 买卖股票的最佳时机
     Greedy
         minimumNumberofArrowstoBurstBalloons.js:  Leetcode: 452. 用最少数量的箭引爆气球
+        reorganizeString.js:  Leetcode: 767. 重构字符串
     LinkList
         addTwoNumbers.js:  Leetcode 2. 两数相加
         deleteNodeinaLinkedList.js:  Leetcode: 237. 删除链表中的节点
