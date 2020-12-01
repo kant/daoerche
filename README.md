@@ -62,6 +62,7 @@ dirTitleHandle(rootPath);
         containerWithMostWater.js:  Leetcode: 11. Container With Most Water
         containsDuplicate.js:  Leetcode: 217. 存在重复元素
         findAllNumbersDisappearedInAnArray.js:  Leetcode: 448. 找到所有数组中消失的数字
+        findFirstandLastPositionofElementinSortedArray.js:  Leetcode: 34. 在排序数组中查找元素的第一个和最后一个位置
         moveZeroes.js:  LeetCode: 283. 移动零
         rotate.js:  leetcode 189. 旋转数组
     Base
