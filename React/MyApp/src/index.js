@@ -1042,56 +1042,152 @@ import './index.css';
 
 // Refs 和 Dom
 
-class CustomTextInput extends React.Component {
+// class CustomTextInput extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         // 创建一个 ref 来存储 textInput 的 DOM 元素
+//         this.textInput = React.createRef();
+//         this.focusTextInput = this.focusTextInput.bind(this);
+//     }
+//
+//     focusTextInput() {
+//         // 直接使用原生 API 使 text 输入框获得焦点
+//         // 注意：我们通过 "current" 来访问 DOM 节点
+//         this.textInput.current.focus();
+//     }
+//
+//     render() {
+//         // 告诉 React 我们想把 <input> ref 关联到
+//         // 构造器里创建的 `textInput` 上
+//         return (
+//             <div>
+//                 <input
+//                     type="text"
+//                     ref={this.textInput} />
+//                 <input
+//                     type="button"
+//                     value="Focus the text input"
+//                     onClick={this.focusTextInput}
+//                 />
+//             </div>
+//         );
+//     }
+// }
+//
+// class AutoFocusTextInput extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.textInput = React.createRef();
+//     }
+//
+//     componentDidMount() {
+//         this.textInput.current.focusTextInput();
+//     }
+//
+//     render() {
+//         return (
+//             <CustomTextInput ref={this.textInput} />
+//         );
+//     }
+// }
+//
+// ReactDOM.render(
+//     <AutoFocusTextInput />,
+//     document.getElementById('root')
+// );
+
+// API
+
+// class Hello extends React.Component {
+//     render() {
+//         console.log(React.Children.toArray(this.props.children))
+//         React.Children.map(this.props.children, (c, idx) => console.log(c, idx));
+//         return React.createElement('div', null, `Hello ${this.props.toWhat}`);
+//     }
+// }
+//
+// const fn = () => {
+//     return <div>haha</div>
+// }
+//
+// console.log(React.isValidElement(Hello));
+// console.log(React.isValidElement(fn()));
+//
+// ReactDOM.render(
+//     React.createElement(Hello, {style: {color: 'red'}}, <Hello />, 'hahaha' ),
+//     document.getElementById('root')
+// );
+
+
+import {ThemeContext, themes} from './components/theme-context';
+
+class App extends React.Component {
     constructor(props) {
         super(props);
-        // 创建一个 ref 来存储 textInput 的 DOM 元素
-        this.textInput = React.createRef();
-        this.focusTextInput = this.focusTextInput.bind(this);
-    }
+        console.log('constructor')
 
-    focusTextInput() {
-        // 直接使用原生 API 使 text 输入框获得焦点
-        // 注意：我们通过 "current" 来访问 DOM 节点
-        this.textInput.current.focus();
-    }
+        this.toggleTheme = () => {
+            this.setState(state => ({
+                theme:
+                    state.theme === themes.dark
+                        ? themes.light
+                        : themes.dark,
+            }));
+        };
 
-    render() {
-        // 告诉 React 我们想把 <input> ref 关联到
-        // 构造器里创建的 `textInput` 上
-        return (
-            <div>
-                <input
-                    type="text"
-                    ref={this.textInput} />
-                <input
-                    type="button"
-                    value="Focus the text input"
-                    onClick={this.focusTextInput}
-                />
-            </div>
-        );
-    }
-}
-
-class AutoFocusTextInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.textInput = React.createRef();
+        // State 也包含了更新函数，因此它会被传递进 context provider。
+        this.state = {
+            theme: themes.light,
+            toggleTheme: this.toggleTheme,
+        };
     }
 
     componentDidMount() {
-        this.textInput.current.focusTextInput();
+        console.log('componentDidMount')
+    }
+
+    static getDerivedStateFromProps(...rest) {
+        console.log('getDerivedStateFromProps()', ...rest);
     }
 
     render() {
+        console.log('render')
+        // 整个 state 都被传递进 provider
         return (
-            <CustomTextInput ref={this.textInput} />
+            <ThemeContext.Provider value={this.state}>
+                <Content />
+            </ThemeContext.Provider>
         );
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log('shouldComponentUpdate')
+        return true;
+    }
+
+    getSnapshotBeforeUpdate(...rest) {
+        console.log('getSnapshotBeforeUpdate()', ...rest);
+    }
+
+    componentDidUpdate() {
+        console.log('componenetDidUpdate');
     }
 }
 
-ReactDOM.render(
-    <AutoFocusTextInput />,
-    document.getElementById('root')
-);
+class Content extends React.Component {
+    render() {
+        const { theme, toggleTheme } = this.context;
+
+        return (
+            <button          onClick={toggleTheme}
+                             style={{backgroundColor: theme.background}}>
+
+                Toggle Theme
+            </button>
+        )
+    }
+}
+
+Content.contextType = ThemeContext;
+
+ReactDOM.render(<App />, document.getElementById('root'));
