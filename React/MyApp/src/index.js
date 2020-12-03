@@ -1119,75 +1119,127 @@ import './index.css';
 // );
 
 
-import {ThemeContext, themes} from './components/theme-context';
+// import {ThemeContext, themes} from './components/theme-context';
+//
+// class App extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         console.log('constructor')
+//
+//         this.toggleTheme = () => {
+//             this.setState(state => ({
+//                 theme:
+//                     state.theme === themes.dark
+//                         ? themes.light
+//                         : themes.dark,
+//             }));
+//         };
+//
+//         // State 也包含了更新函数，因此它会被传递进 context provider。
+//         this.state = {
+//             theme: themes.light,
+//             toggleTheme: this.toggleTheme,
+//         };
+//     }
+//
+//     componentDidMount() {
+//         console.log('componentDidMount')
+//     }
+//
+//     static getDerivedStateFromProps(...rest) {
+//         console.log('getDerivedStateFromProps()', ...rest);
+//     }
+//
+//     render() {
+//         console.log('render')
+//         // 整个 state 都被传递进 provider
+//         return (
+//             <ThemeContext.Provider value={this.state}>
+//                 <Content />
+//             </ThemeContext.Provider>
+//         );
+//     }
+//
+//     shouldComponentUpdate(nextProps, nextState, nextContext) {
+//         console.log('shouldComponentUpdate')
+//         return true;
+//     }
+//
+//     getSnapshotBeforeUpdate(...rest) {
+//         console.log('getSnapshotBeforeUpdate()', ...rest);
+//     }
+//
+//     componentDidUpdate() {
+//         console.log('componenetDidUpdate');
+//     }
+// }
+//
+// class Content extends React.Component {
+//     render() {
+//         const { theme, toggleTheme } = this.context;
+//
+//         return (
+//             <button          onClick={toggleTheme}
+//                              style={{backgroundColor: theme.background}}>
+//
+//                 Toggle Theme
+//             </button>
+//         )
+//     }
+// }
+//
+// Content.contextType = ThemeContext;
+//
+// ReactDOM.render(<App />, document.getElementById('root'));
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log('constructor')
-
-        this.toggleTheme = () => {
-            this.setState(state => ({
-                theme:
-                    state.theme === themes.dark
-                        ? themes.light
-                        : themes.dark,
-            }));
-        };
-
-        // State 也包含了更新函数，因此它会被传递进 context provider。
-        this.state = {
-            theme: themes.light,
-            toggleTheme: this.toggleTheme,
-        };
-    }
-
-    componentDidMount() {
-        console.log('componentDidMount')
-    }
-
-    static getDerivedStateFromProps(...rest) {
-        console.log('getDerivedStateFromProps()', ...rest);
+class World extends React.Component {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('World component update!!!');
     }
 
     render() {
-        console.log('render')
-        // 整个 state 都被传递进 provider
-        return (
-            <ThemeContext.Provider value={this.state}>
-                <Content />
-            </ThemeContext.Provider>
-        );
+        return <span>{this.props.suffix}</span>
+    }
+}
+
+class Hello extends React.Component {
+    constructor(...args) {
+        super(...args);
+
+        this.state = {
+            suffix: 'daoerche'
+        }
+
+        setTimeout(() => {
+            this.setState({
+               suffix: 'jianjian'
+            });
+        }, 5000);
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        const dom = document.getElementById('daoerche');
+        console.log('getSnapshotBeforeUpdate', dom.innerHTML);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('Hello components update!!!', prevState, this.state);
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log('shouldComponentUpdate')
-        return true;
+        console.log('should component update');
+        if (nextState.suffix === 'jianjian') return true;
     }
 
-    getSnapshotBeforeUpdate(...rest) {
-        console.log('getSnapshotBeforeUpdate()', ...rest);
-    }
-
-    componentDidUpdate() {
-        console.log('componenetDidUpdate');
-    }
-}
-
-class Content extends React.Component {
     render() {
-        const { theme, toggleTheme } = this.context;
-
         return (
-            <button          onClick={toggleTheme}
-                             style={{backgroundColor: theme.background}}>
-
-                Toggle Theme
-            </button>
+            <h1 id='daoerche'>Hello <World suffix={this.state.suffix} /></h1>
         )
     }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('Hello getDerivedStateFromProps', props, state);
+    }
 }
 
-Content.contextType = ThemeContext;
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Hello />, document.getElementById('root'));
