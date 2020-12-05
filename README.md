@@ -65,6 +65,7 @@ dirTitleHandle(rootPath);
         findFirstandLastPositionofElementinSortedArray.js:  Leetcode: 34. 在排序数组中查找元素的第一个和最后一个位置
         moveZeroes.js:  LeetCode: 283. 移动零
         rotate.js:  leetcode 189. 旋转数组
+        taskScheduler.js:  Leetcode: 621. 任务调度器
     Base
         isIPV4.js:  判断一个ip地址是否为ipv4
     DP
