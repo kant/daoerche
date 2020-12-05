@@ -1,4 +1,5 @@
 /**
+ * @title Leetcode: 292. Nim 游戏
  * @param {number} n
  * @return {boolean}
  * 想要赢，你就得是在4的倍数的情况下走后手，然后始终跟对手保持4的配对来拿

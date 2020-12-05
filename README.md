@@ -95,6 +95,7 @@ dirTitleHandle(rootPath);
         majorityElement.js:  leetCode 169. 多数元素
         maxSubArray.js:  leetcode 53. 最大子序和
         mySqrt.js:  leetcode 69. x 的平方根
+        nimGame.js:  Leetcode: 292. Nim 游戏
         powerOfTwo.js:  Leetcode: 231. 2的幂
         reverse.js:  leetcode 7. 整数反转
         searchInsert.js:  leetcode 35. 搜索插入位置
@@ -115,6 +116,7 @@ dirTitleHandle(rootPath);
         commonChars.js:  leetCode 1002. 查找常用字符
         increasingDecreasingString.js:  Leetcode: 1370. 上升下降字符串
         lengthOfLongestSubstring.js:  3. 无重复字符的最长子串
+        reverseString.js:  Leetcode: 344. 反转字符串
     Tree
         countCompleteTreeNodes.js:  Leetcode: 222. 完全二叉树的节点个数
         createLinkTreeForArrTree.js:  将完全二叉树的数组形式转换为链表形式
