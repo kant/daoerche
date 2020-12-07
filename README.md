@@ -100,6 +100,7 @@ dirTitleHandle(rootPath);
         nimGame.js:  Leetcode: 292. Nim 游戏
         powerOfTwo.js:  Leetcode: 231. 2的幂
         reverse.js:  leetcode 7. 整数反转
+        reverseBits.js:  Leetcode: 190. 颠倒二进制位
         searchInsert.js:  leetcode 35. 搜索插入位置
         singleNumber.js:  leetcode 136. 只出现一次的数字
         trailingZeroes.js:  leetCode 172. 阶乘后的零
