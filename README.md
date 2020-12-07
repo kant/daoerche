@@ -103,6 +103,7 @@ dirTitleHandle(rootPath);
         reverseBits.js:  Leetcode: 190. 颠倒二进制位
         searchInsert.js:  leetcode 35. 搜索插入位置
         singleNumber.js:  leetcode 136. 只出现一次的数字
+        sumofTwoIntegers.js:  Leetcode: 371. 两整数之和
         trailingZeroes.js:  leetCode 172. 阶乘后的零
         twoSum.js:  leetcode 1. 两数之和
         twoSum2.js:  leetCode 167. 两数之和 II - 输入有序数组
