@@ -92,6 +92,7 @@ dirTitleHandle(rootPath);
         GCD.js:  最大公约数：辗转相除法
         binarySearch.js:  二分查找
         hammingDistance.js:  Leetcode: 461. 汉明距离
+        happyNumber.js:  Leetcode: 202. 快乐数
         isPalindrome.js:  leetcode 9. 回文数
         longestCommonPrefix.js:  leetcode 14. 最长公共前缀
         majorityElement.js:  leetCode 169. 多数元素
