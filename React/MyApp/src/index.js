@@ -1247,21 +1247,39 @@ class Hello extends React.Component {
         super(props);
 
         setTimeout(() => this.forceUpdate(() => console.log('forceUpdate')), 5000);
+        this.onFocus = this.onFocus.bind(this)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('did update');
     }
 
+    onFocus(e) {
+        e.persist()
+        window.m = e;
+        if (e.currentTarget === e.target) {
+            console.log('focused self');
+        } else {
+            console.log('focused child', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+            // Not triggered when swapping focus between children
+            console.log('focus entered self');
+        }
+    }
+
     render() {
         return (
-            <h3>Hello</h3>
+            <div>
+                <h3>Hello</h3>
+                <p onFocus={this.onFocus}>world!<input /></p>
+            </div>
         )
     }
 
 }
 
 ReactDOM.render(<Hello />, document.getElementById('root'), () => console.log('render complete'));
-setTimeout(() => {
-    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-}, 10000)
+// setTimeout(() => {
+//     ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+// }, 10000)
