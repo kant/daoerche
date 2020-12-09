@@ -1192,54 +1192,54 @@ import './index.css';
 //
 // ReactDOM.render(<App />, document.getElementById('root'));
 
-class World extends React.Component {
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('World component update!!!');
-    }
-
-    render() {
-        return <span>{this.props.suffix}</span>
-    }
-}
-
-class Hello extends React.Component {
-    constructor(...args) {
-        super(...args);
-
-        this.state = {
-            suffix: 'daoerche'
-        }
-
-        setTimeout(() => {
-            this.setState({
-               suffix: 'jianjian'
-            });
-        }, 5000);
-    }
-
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        const dom = document.getElementById('daoerche');
-        console.log('getSnapshotBeforeUpdate', dom.innerHTML);
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('Hello components update!!!', prevState, this.state);
-    }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log('should component update');
-        if (nextState.suffix === 'jianjian') return true;
-    }
-
-    render() {
-        return (
-            <h1 id='daoerche'>Hello <World suffix={this.state.suffix} /></h1>
-        )
-    }
-
-    static getDerivedStateFromProps(props, state) {
-        console.log('Hello getDerivedStateFromProps', props, state);
-    }
-}
+// class World extends React.Component {
+//     componentDidUpdate(prevProps, prevState, snapshot) {
+//         console.log('World component update!!!');
+//     }
+//
+//     render() {
+//         return <span>{this.props.suffix}</span>
+//     }
+// }
+//
+// class Hello extends React.Component {
+//     constructor(...args) {
+//         super(...args);
+//
+//         this.state = {
+//             suffix: 'daoerche'
+//         }
+//
+//         setTimeout(() => {
+//             this.setState({
+//                suffix: 'jianjian'
+//             });
+//         }, 5000);
+//     }
+//
+//     getSnapshotBeforeUpdate(prevProps, prevState) {
+//         const dom = document.getElementById('daoerche');
+//         console.log('getSnapshotBeforeUpdate', dom.innerHTML);
+//     }
+//
+//     componentDidUpdate(prevProps, prevState, snapshot) {
+//         console.log('Hello components update!!!', prevState, this.state);
+//     }
+//
+//     shouldComponentUpdate(nextProps, nextState, nextContext) {
+//         console.log('should component update');
+//         if (nextState.suffix === 'jianjian') return true;
+//     }
+//
+//     render() {
+//         return (
+//             <h1 id='daoerche'>Hello <World suffix={this.state.suffix} /></h1>
+//         )
+//     }
+//
+//     static getDerivedStateFromProps(props, state) {
+//         console.log('Hello getDerivedStateFromProps', props, state);
+//     }
+// }
 
 ReactDOM.render(<Hello />, document.getElementById('root'));

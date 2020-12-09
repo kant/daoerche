@@ -101,6 +101,7 @@ dirTitleHandle(rootPath);
         mySqrt.js:  leetcode 69. x 的平方根
         nimGame.js:  Leetcode: 292. Nim 游戏
         powerOfTwo.js:  Leetcode: 231. 2的幂
+        powerofThree.js:  Leetcode: 326. 3的幂
         reverse.js:  leetcode 7. 整数反转
         reverseBits.js:  Leetcode: 190. 颠倒二进制位
         searchInsert.js:  leetcode 35. 搜索插入位置
