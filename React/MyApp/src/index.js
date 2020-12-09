@@ -1242,4 +1242,26 @@ import './index.css';
 //     }
 // }
 
-ReactDOM.render(<Hello />, document.getElementById('root'));
+class Hello extends React.Component {
+    constructor(props) {
+        super(props);
+
+        setTimeout(() => this.forceUpdate(() => console.log('forceUpdate')), 5000);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('did update');
+    }
+
+    render() {
+        return (
+            <h3>Hello</h3>
+        )
+    }
+
+}
+
+ReactDOM.render(<Hello />, document.getElementById('root'), () => console.log('render complete'));
+setTimeout(() => {
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+}, 10000)
