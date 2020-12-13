@@ -122,6 +122,7 @@ dirTitleHandle(rootPath);
         MinStack.js:  LeetCode 155. 最小栈
     String
         commonChars.js:  leetCode 1002. 查找常用字符
+        firstUniqueCharacterinaString.js:  Leetcode: 387. 字符串中的第一个唯一字符
         increasingDecreasingString.js:  Leetcode: 1370. 上升下降字符串
         lengthOfLongestSubstring.js:  3. 无重复字符的最长子串
         reverseString.js:  Leetcode: 344. 反转字符串
