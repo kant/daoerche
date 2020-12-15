@@ -93,6 +93,7 @@ dirTitleHandle(rootPath);
         Binary.js:  Leetcode 191. 位1的个数
         GCD.js:  最大公约数：辗转相除法
         binarySearch.js:  二分查找
+        countPrimes.js:  Leetcode: 204. 计数质数
         fizzBuzz.js:  Leetcode: 412. Fizz Buzz
         hammingDistance.js:  Leetcode: 461. 汉明距离
         happyNumber.js:  Leetcode: 202. 快乐数
