@@ -129,6 +129,7 @@ dirTitleHandle(rootPath);
         lengthOfLongestSubstring.js:  3. 无重复字符的最长子串
         reverseString.js:  Leetcode: 344. 反转字符串
         reverseWordsinaStringIII.js:  Leetcode: 557. 反转字符串中的单词 III
+        wordPattern.js:  Leetcode: 290. 单词规律
     Tree
         countCompleteTreeNodes.js:  Leetcode: 222. 完全二叉树的节点个数
         createLinkTreeForArrTree.js:  将完全二叉树的数组形式转换为链表形式
