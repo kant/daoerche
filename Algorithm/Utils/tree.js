@@ -28,7 +28,13 @@ const createCompleteBinaryTree = (...nodeVals) => {
     return nodes[0] || null;
 }
 
+// json格式化输出Tree
+const printTree = (root) => {
+    console.log(JSON.stringify(root, null, 2))
+}
+
 module.exports = {
     TreeNode,
-    createCompleteBinaryTree
+    createCompleteBinaryTree,
+    printTree
 }
