@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState} from "react";
 import UseState from "./UseState";
+import UseContextApp from "./useContext";
+import Counter from "./useReducer";
 
 function useClickCount() {
     // 声明一个叫 “count” 的 state 变量。
@@ -42,6 +44,8 @@ function App() {
     <div className="App">
         {Example()}
         {UseState()}
+        {UseContextApp()}
+        {Counter()}
     </div>
   );
 }
