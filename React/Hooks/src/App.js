@@ -45,7 +45,7 @@ function App() {
         {Example()}
         {UseState()}
         {UseContextApp()}
-        {Counter()}
+        {Counter({initialCount: 5})}
     </div>
   );
 }
