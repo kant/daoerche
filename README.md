@@ -137,6 +137,7 @@ dirTitleHandle(rootPath);
         countCompleteTreeNodes.js:  Leetcode: 222. 完全二叉树的节点个数
         createLinkTreeForArrTree.js:  将完全二叉树的数组形式转换为链表形式
         diameterOfBinaryTree.js:  Leetcode: 543. 二叉树的直径
+        findModeinBinarySearchTree.js:  Leetcode: 501. 二叉搜索树中的众数
         hasPathSum.js:  leetcode 112. 路径总和
         invertBinaryTree.js:  Leetcode: 226. 翻转二叉树
         lowestCommonAncestorofaBinarySearchTree.js:  Leetcode: 235. 二叉搜索树的最近公共祖先
