@@ -144,6 +144,7 @@ dirTitleHandle(rootPath);
         maxDepth.js:  返回这个树的最大深度 (根节点到叶子节点的深度)
         mergeTwoBinaryTrees.js:  Leetcode: 617. 合并二叉树
         minDepth.js:  返回这个树的最小深度 (根节点到叶子节点的深度)
+        minimumAbsoluteDifferenceinBST.js:  Leetcode: 530. 二叉搜索树的最小绝对差
         snakeTraverse.js:  蛇形遍历Tree结构
         sumOfLeftLeaves.js:  Leetcode: 404. 左叶子之和
     Utils
