@@ -2,7 +2,7 @@ const {
     TreeNode,
     createBinaryTree,
     printTree
-} = require('../Utils/tree');
+} = require('../utils/tree');
 
 /**
  * @title Leetcode: 235. 二叉搜索树的最近公共祖先

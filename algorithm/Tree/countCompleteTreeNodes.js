@@ -1,4 +1,4 @@
-const { TreeNode, createCompleteBinaryTree } = require('../Utils/tree');
+const { TreeNode, createCompleteBinaryTree } = require('../utils/tree');
 
 /**
  * Definition for a binary tree node.

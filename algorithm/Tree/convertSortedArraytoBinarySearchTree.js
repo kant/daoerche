@@ -1,4 +1,4 @@
-const { TreeNode, printTree } = require('../Utils/tree');
+const { TreeNode, printTree } = require('../utils/tree');
 
 /**
  * Definition for a binary tree node.

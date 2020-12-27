@@ -1,4 +1,4 @@
-const { createLinkList, ListNode } = require('../Utils/linkList');
+const { createLinkList, ListNode } = require('../utils/linkList');
 
 /**
  * Definition for singly-linked list.

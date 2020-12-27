@@ -2,7 +2,7 @@ const {
     TreeNode,
     createBinaryTree,
     printTree
-} = require('../Utils/tree');
+} = require('../utils/tree');
 
 /**
  * Definition for a binary tree node.

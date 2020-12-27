@@ -57,8 +57,8 @@ dirTitleHandle(rootPath);
 ```
 
 
-<pre>Algorithm
-    Array
+<pre>algorithm
+    array
         containerWithMostWater.js:  Leetcode: 11. Container With Most Water
         containsDuplicate.js:  Leetcode: 217. 存在重复元素
         findAllNumbersDisappearedInAnArray.js:  Leetcode: 448. 找到所有数组中消失的数字
@@ -68,18 +68,18 @@ dirTitleHandle(rootPath);
         moveZeroes.js:  LeetCode: 283. 移动零
         rotate.js:  leetcode 189. 旋转数组
         taskScheduler.js:  Leetcode: 621. 任务调度器
-    Base
+    base
         isIPV4.js:  判断一个ip地址是否为ipv4
-    DP
+    dp
         bestTimetoBuyandSellStockII.js:  Leetcode: 122. 买卖股票的最佳时机 II
         climbStairs.js:  leetcode 70. 爬楼梯
         longestPalindromicSubstring.js:  Leetcode: 5. 最长回文子串
         maxProfit.js:  Leetcode 121. 买卖股票的最佳时机
         minCostClimbingStairs.js:  Leetcode: 746. 使用最小花费爬楼梯
-    Greedy
+    greedy
         minimumNumberofArrowstoBurstBalloons.js:  Leetcode: 452. 用最少数量的箭引爆气球
         reorganizeString.js:  Leetcode: 767. 重构字符串
-    LinkList
+    link-list
         addTwoNumbers.js:  Leetcode 2. 两数相加
         deleteNodeinaLinkedList.js:  Leetcode: 237. 删除链表中的节点
         getIntersectionNode.js:  LeetCode 160. 相交链表
@@ -89,7 +89,7 @@ dirTitleHandle(rootPath);
         palindromeLinkedList.js:  Leetcode: 234. 回文链表
         removeNthNodeFromEndofList.js:  Leetcode: 19. 删除链表的倒数第N个节点
         reverseLinkedList.js:  Leetcode: 206. 反转链表
-    Math
+    math
         3Sum.js:  Leetcode 15. 3Sum
         Binary.js:  Leetcode 191. 位1的个数
         GCD.js:  最大公约数：辗转相除法
@@ -114,16 +114,16 @@ dirTitleHandle(rootPath);
         trailingZeroes.js:  leetCode 172. 阶乘后的零
         twoSum.js:  leetcode 1. 两数之和
         twoSum2.js:  leetCode 167. 两数之和 II - 输入有序数组
-    Recursion
+    recursion
         letterCombinationsOfAPhoneNumber.js:  Leetcode: 17. 电话号码的字母组合
-    Sort
+    sort
         HeapSort.js:  堆排序
         QuickSort.js:  快速排序
         SelectionSort.js:  选择排序
         bubbleSort.js:  冒泡排序
-    Stack
+    stack
         MinStack.js:  LeetCode 155. 最小栈
-    String
+    string
         commonChars.js:  leetCode 1002. 查找常用字符
         firstUniqueCharacterinaString.js:  Leetcode: 387. 字符串中的第一个唯一字符
         increasingDecreasingString.js:  Leetcode: 1370. 上升下降字符串
@@ -131,7 +131,7 @@ dirTitleHandle(rootPath);
         reverseString.js:  Leetcode: 344. 反转字符串
         reverseWordsinaStringIII.js:  Leetcode: 557. 反转字符串中的单词 III
         wordPattern.js:  Leetcode: 290. 单词规律
-    Tree
+    tree
         binaryTreePaths.js:  Leetcode: 257. 二叉树的所有路径
         convertSortedArraytoBinarySearchTree.js:  Leetcode: 108. 将有序数组转换为二叉搜索树
         countCompleteTreeNodes.js:  Leetcode: 222. 完全二叉树的节点个数
@@ -147,13 +147,13 @@ dirTitleHandle(rootPath);
         minimumAbsoluteDifferenceinBST.js:  Leetcode: 530. 二叉搜索树的最小绝对差
         snakeTraverse.js:  蛇形遍历Tree结构
         sumOfLeftLeaves.js:  Leetcode: 404. 左叶子之和
-    Utils
+    utils
         linkList.js:  构造链表的工具函数
         tree.js:  构造树的工具函数
-BuildReadMe: daoerche项目ReadMe自动构建工具
-Css
-    Flex: flex布局学习
-Library
+buildReadMe: daoerche项目ReadMe自动构建工具
+css
+    flex: flex布局学习
+library
     javaScript
         closure.js:  创建一个闭包
         eventLoop.js:  浏览器Event Loop测试
@@ -162,20 +162,21 @@ Library
         render.js:  实现一个简单的模板渲染
         sleep.js:  实现一个sleep函数
     vue: 实现一个简单的Vue
-MobX
+mobx
     exercise: Mobx学习
-React
-    Hooks: React Hooks 专项学习
-    MyApp: 第一个React入门项目
-Shell
-    Test: Shell脚本练习
-    exerciseCD: shell脚本写的管理cd唱片程序
-Test
-    Lerna: lerna学习测试
+react
+    example-exercise: 深入react学习各种实践例子用法
+    hooks: React Hooks 专项学习
+    my-app: 第一个React入门项目
+shell
+    exercise-CD: shell脚本写的管理cd唱片程序
+    test: Shell脚本练习
+test
     fingerprintjs: 测试浏览器指纹库
+    lerna: lerna学习测试
     test.js:  瞎几把临时测试文件
-Vue
-    DrowIo: Vue的相关流程和架构图
-Webpack
+vue
+    drow-io: Vue的相关流程和架构图
+webpack
     i18n: 手动撸一个i18n构建方案
 </pre>
