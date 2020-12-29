@@ -28,3 +28,14 @@ const maxDepth = function(root) {
 };
 
 // TODO: 可以再用递归写一遍
+// 递归写法
+const maxDepth2 = function(root) {
+    if (!root) return 0;
+
+    let deep = 0;
+    root.children.forEach(node => {
+        deep = Math.max(deep, maxDepth(node));
+    });
+
+    return deep + 1;
+};
