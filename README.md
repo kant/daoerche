@@ -146,6 +146,7 @@ dirTitleHandle(rootPath);
         mergeTwoBinaryTrees.js:  Leetcode: 617. 合并二叉树
         minDepth.js:  返回这个树的最小深度 (根节点到叶子节点的深度)
         minimumAbsoluteDifferenceinBST.js:  Leetcode: 530. 二叉搜索树的最小绝对差
+        n-aryTreePreorderTraversal.js:  Leetcode: 589. N叉树的前序遍历
         snakeTraverse.js:  蛇形遍历Tree结构
         sumOfLeftLeaves.js:  Leetcode: 404. 左叶子之和
     utils
