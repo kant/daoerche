@@ -132,6 +132,7 @@ dirTitleHandle(rootPath);
         reverseWordsinaStringIII.js:  Leetcode: 557. 反转字符串中的单词 III
         wordPattern.js:  Leetcode: 290. 单词规律
     tree
+        N-aryTreePostorderTraversal.js:  Leetcode: 590. N叉树的后序遍历
         binaryTreePaths.js:  Leetcode: 257. 二叉树的所有路径
         convertSortedArraytoBinarySearchTree.js:  Leetcode: 108. 将有序数组转换为二叉搜索树
         countCompleteTreeNodes.js:  Leetcode: 222. 完全二叉树的节点个数
