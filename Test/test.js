@@ -63,4 +63,3 @@ const f1 = num => num + 1;
 const f2 = num => num * 2;
 const f = compose(f2, f1);
 console.log(f(3));
-

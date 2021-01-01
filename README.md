@@ -135,6 +135,7 @@ dirTitleHandle(rootPath);
         N-aryTreePostorderTraversal.js:  Leetcode: 590. N叉树的后序遍历
         binaryTreePaths.js:  Leetcode: 257. 二叉树的所有路径
         binaryTreeTilt.js:  Leetcode: 563. 二叉树的坡度
+        constructStringfromBinaryTree.js:  Leetcode: 606. 根据二叉树创建字符串
         convertSortedArraytoBinarySearchTree.js:  Leetcode: 108. 将有序数组转换为二叉搜索树
         countCompleteTreeNodes.js:  Leetcode: 222. 完全二叉树的节点个数
         createLinkTreeForArrTree.js:  将完全二叉树的数组形式转换为链表形式
