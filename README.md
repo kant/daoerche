@@ -180,6 +180,8 @@ test
     fingerprintjs: 测试浏览器指纹库
     lerna: lerna学习测试
     test.js:  瞎几把临时测试文件
+typescript
+    learn-ts: 初步学习typescript项目
 vue
     drow-io: Vue的相关流程和架构图
 webpack
