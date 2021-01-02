@@ -55,11 +55,38 @@
 
 // console.log(snakeTraverse())
 
-const compose = (...rest) => {
-    return (arg) => rest.reverse().reduce((acc, cur) => cur(acc), arg)
+// const compose = (...rest) => {
+//     return (arg) => rest.reverse().reduce((acc, cur) => cur(acc), arg)
+// }
+//
+// const f1 = num => num + 1;
+// const f2 = num => num * 2;
+// const f = compose(f2, f1);
+// console.log(f(3));
+
+function * generator() {
+        let count = 0;
+        while (count < 100) {
+            count = yield count + 10;
+            if (count === 32) {
+                throw new Error('get Error');
+            }
+            count++;
+        }
 }
 
-const f1 = num => num + 1;
-const f2 = num => num * 2;
-const f = compose(f2, f1);
-console.log(f(3));
+const g = generator();
+let result = g.next();
+while (!result.done) {
+    try {
+        console.log('wrap', result.value, result.done);
+        if (result.value !== 6) {
+            result = g.next(result.value);
+        } else {
+            g.throw(new Error('val already to 6'));
+            break;
+        }
+    } catch (e) {
+        console.log('wrap get error', e.message);
+    }
+}
