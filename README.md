@@ -151,6 +151,7 @@ dirTitleHandle(rootPath);
         minimumAbsoluteDifferenceinBST.js:  Leetcode: 530. 二叉搜索树的最小绝对差
         n-aryTreePreorderTraversal.js:  Leetcode: 589. N叉树的前序遍历
         snakeTraverse.js:  蛇形遍历Tree结构
+        subtreeofAnotherTree.js:  Leetcode: 572. 另一个树的子树
         sumOfLeftLeaves.js:  Leetcode: 404. 左叶子之和
     utils
         linkList.js:  构造链表的工具函数
