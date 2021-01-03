@@ -79,7 +79,7 @@ const g = generator();
 let result = g.next();
 while (!result.done) {
     try {
-        console.log('wrap', result.value, result.done);
+        console.log('wrap', result.value, result.d);
         if (result.value !== 6) {
             result = g.next(result.value);
         } else {
