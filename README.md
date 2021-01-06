@@ -133,6 +133,7 @@ dirTitleHandle(rootPath);
         wordPattern.js:  Leetcode: 290. 单词规律
     tree
         N-aryTreePostorderTraversal.js:  Leetcode: 590. N叉树的后序遍历
+        balancedBinaryTree.js:  Leetcode: 110. 平衡二叉树
         binaryTreePaths.js:  Leetcode: 257. 二叉树的所有路径
         binaryTreeTilt.js:  Leetcode: 563. 二叉树的坡度
         constructStringfromBinaryTree.js:  Leetcode: 606. 根据二叉树创建字符串
