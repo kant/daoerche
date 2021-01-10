@@ -152,6 +152,7 @@ dirTitleHandle(rootPath);
         minDepth.js:  返回这个树的最小深度 (根节点到叶子节点的深度)
         minimumAbsoluteDifferenceinBST.js:  Leetcode: 530. 二叉搜索树的最小绝对差
         n-aryTreePreorderTraversal.js:  Leetcode: 589. N叉树的前序遍历
+        secondMinimumNodeInaBinaryTree.js:  Leetcode: 671. 二叉树中第二小的节点
         snakeTraverse.js:  蛇形遍历Tree结构
         subtreeofAnotherTree.js:  Leetcode: 572. 另一个树的子树
         sumOfLeftLeaves.js:  Leetcode: 404. 左叶子之和
