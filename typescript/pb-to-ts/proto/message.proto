@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+package jspb.exttest;
+
+option java_package = "com.google.apps.jspb.proto";
+option java_multiple_files = true;
+
+message TestExtensionsMessage {
+   optional int32 intfield = 1;
+   extensions 100 to max;
+}
+
+message ExtensionMessage {
+   extend TestExtensionsMessage {
+      optional ExtensionMessage ext_field = 100;
+   }
+   optional string ext1 = 1;
+}
+
+extend TestExtensionsMessage {
+   optional ExtensionMessage floating_msg_field = 101;
+   optional string floating_str_field = 102;
+}

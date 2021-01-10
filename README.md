@@ -186,6 +186,7 @@ test
     test.js:  瞎几把临时测试文件
 typescript
     learn-ts: 初步学习typescript项目
+    pb-to-ts: 实现 protocol buffer 自动转 ts声明
 vue
     drow-io: Vue的相关流程和架构图
 webpack
