@@ -1,35 +1,93 @@
-function sayHello(person) {
-    return 'Hello, ' + person;
-}
-var user = 'daoer';
-console.log(sayHello(user));
-var a = Boolean('aaa');
-var b = Boolean(1);
-var c = true;
-console.log(c.valueOf());
-var decLiteral = 6;
-var hexLiteral = 0xf00d;
-// ES6 中的二进制表示法
-var binaryLiteral = 10;
-// ES6 中的八进制表示法
-var octalLiteral = 484;
-var notANumber = NaN;
-var infinityNumber = Infinity;
-var myName = 'Tom';
-var myAge = 25;
-// 模板字符串
-var sentence = "Hello, my name is " + myName + ".\n             I'll be " + (myAge + 1) + " years old next month.";
-var num = undefined;
-var num2 = null;
+// function sayHello(person: string) {
+//   return 'Hello, ' + person;
+// }
+//
+// let user = 'daoer';
+// console.log(sayHello(user));
+//
+//
+// const a: Boolean = Boolean('aaa');
+// const b: boolean = Boolean(1);
+// const c: boolean = true;
+// console.log(c.valueOf());
+//
+//
+// let decLiteral: number = 6;
+// let hexLiteral: number = 0xf00d;
+// // ES6 中的二进制表示法
+// let binaryLiteral: number = 0b1010;
+// // ES6 中的八进制表示法
+// let octalLiteral: number = 0o744;
+// let notANumber: number = NaN;
+// let infinityNumber: number = Infinity;
+//
+//
+// let myName: string = 'Tom';
+// let myAge: number = 25;
+//
+// // 模板字符串
+// let sentence: string = `Hello, my name is ${myName}.
+//             \ I'll be ${myAge + 1} years old next month.`;
+//
+// let num: number = undefined;
+// let num2: number = null;
+//
+// // let myFavoriteNumber: string | number;
+// // myFavoriteNumber = 'seven';
+// // myFavoriteNumber = 7;
+//
 // let myFavoriteNumber: string | number;
 // myFavoriteNumber = 'seven';
+// console.log(myFavoriteNumber.length); // 5
 // myFavoriteNumber = 7;
-var myFavoriteNumber;
-myFavoriteNumber = 'seven';
-console.log(myFavoriteNumber.length); // 5
-myFavoriteNumber = 7;
-var tom = {
-    name: 'Tom',
-    age: 25,
-    gender: 'male'
-};
+// // console.log(myFavoriteNumber.length); // 编译时报错
+//
+// // interface Person {
+// //   name: string;
+// //   age?: number;
+// //   [propName: string]: string | number;
+// // }
+// //
+// // let tom: Person = {
+// //   name: 'Tom',
+// //   age: 25,
+// //   gender: 'male'
+// // };
+//
+// interface Person {
+//   readonly id?: number;
+//   name: string;
+//   age?: number;
+//   [propName: string]: any;
+// }
+//
+// let tom: Person = {
+//   name: 'Tom',
+//   gender: 'male'
+// };
+//
+// // tom.id = 89757;
+//
+// let mySum: (x: number, y: number) => number = function (x: number, y: number): number {
+//   return x + y;
+// };
+//
+// interface SearchFunc {
+//   (source: string, subString: string): boolean;
+// }
+//
+// let mySearch: SearchFunc;
+// mySearch = function(source: string, subString: string) {
+//   return source.search(subString) !== -1;
+// }
+//
+// function buildName(firstName: string = 'Tom', lastName: string) {
+//   return firstName + ' ' + lastName;
+// }
+// let tomcat = buildName('Tom', 'Cat');
+// let cat = buildName(undefined, 'Cat');
+function getName(animal) {
+    animal.run();
+    var a = animal.swim('haha');
+    return animal.name;
+}
