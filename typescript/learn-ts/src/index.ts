@@ -109,18 +109,147 @@
 // const n = reverse('123')
 // console.log(n.length)
 
-interface Cat {
-  name: string;
-  run(): void;
-  swim: () => void;
-}
-interface Fish {
-  name: string;
-  swim(name: string): void;
-}
+// interface Cat {
+//   name: string;
+//   run(): void;
+//   swim: () => void;
+// }
+// interface Fish {
+//   name: string;
+//   swim(name: string): void;
+// }
+//
+// function getName(animal: Cat | Fish) {
+//   (animal as Cat).run()
+//   const a = animal.swim('haha')
+//   return animal.name;
+// }
 
-function getName(animal: Cat | Fish) {
-  (animal as Cat).run()
-  const a = animal.swim('haha')
-  return animal.name;
-}
+// interface Cat {
+//   run(): void;
+// }
+// interface Fish {
+//   swim(): void;
+// }
+//
+// function testCat(cat: Cat) {
+//   return (cat as any as Fish);
+// }
+
+// function getCacheData<T>(key: string): T {
+//   return (window as any).cache[key];
+// }
+//
+// interface Cat {
+//   name: string;
+//   run(): void;
+// }
+//
+// const tom = getCacheData<Cat>('tom');
+// tom.run();
+
+// declare const jQuery: (selector: string) => any;
+// declare function jQuery(selector: string): any;
+// declare function jQuery(domReadyCallback: () => any): any;
+//
+// jQuery('#foo');
+// jQuery(() => {});
+//
+// declare class Animal {
+//   name: string;
+//   constructor(name: string);
+//   sayHi(): string;
+// }
+//
+// const animal = new Animal('daoer');
+//
+// declare enum Directions {
+//   Up,
+//   Down,
+//   Left,
+//   Right
+// }
+//
+// let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+
+// declare namespace jQuery {
+//   function ajax(url: string, settings?: any): void;
+//   const version: number;
+//   class Event {
+//     blur(eventType: EventType): void
+//   }
+//   enum EventType {
+//     CustomClick
+//   }
+// }
+//
+// jQuery.ajax('/api/get_something');
+// console.log(jQuery.version);
+// const e = new jQuery.Event();
+// e.blur(jQuery.EventType.CustomClick);
+
+// declare namespace jQuery {
+//   function ajax(url: string, settings?: any): void;
+//   namespace fn {
+//     function extend(object: any): void;
+//   }
+// }
+//
+// jQuery.fn.extend({});
+
+// declare namespace jQuery {
+//   interface AjaxSettings {
+//     method?: 'GET' | 'POST'
+//     data?: any;
+//   }
+//   function ajax(url: string, settings?: AjaxSettings): void;
+// }
+//
+// let settings: jQuery.AjaxSettings = {
+//   method: 'POST',
+//   data: {
+//     name: 'foo'
+//   }
+// };
+// jQuery.ajax('/api/post_something', settings);
+
+// declare function jQuery(selector: string): any;
+// declare namespace jQuery {
+//   function ajax(url: string, settings?: any): void;
+// }
+//
+// jQuery('haha');
+// jQuery.ajax('sss');
+
+// type Name = string;
+// type NameResolver = () => string;
+// type NameOrResolver = Name | NameResolver;
+// function getName(n: NameOrResolver): Name {
+//   if (typeof n === 'string') {
+//     return n;
+//   } else {
+//     return n();
+//   }
+// }
+
+// type EventNames = 'click' | 'scroll' | 'mousemove';
+// function handleEvent(ele: Element, event: EventNames) {
+//   // do something
+// }
+//
+// handleEvent(document.getElementById('hello'), 'scroll');  // 没问题
+// handleEvent(document.getElementById('world'), 'dblclick');
+
+// let tom: [string, number?];
+// tom[0] = 'Tom';
+// tom[1] = 25;
+//
+// tom[0].slice(1);
+// tom[1].toFixed(2);
+//
+// tom = ['aaa'];
+
+let tom: [string, number];
+tom = ['Tom', 25];
+tom.push('male');
+tom.push(true);

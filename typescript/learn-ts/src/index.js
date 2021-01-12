@@ -86,8 +86,5 @@
 // }
 // let tomcat = buildName('Tom', 'Cat');
 // let cat = buildName(undefined, 'Cat');
-function getName(animal) {
-    animal.run();
-    var a = animal.swim('haha');
-    return animal.name;
-}
+jQuery('haha');
+jQuery.ajax('sss');
