@@ -145,6 +145,7 @@ dirTitleHandle(rootPath);
         findModeinBinarySearchTree.js:  Leetcode: 501. 二叉搜索树中的众数
         hasPathSum.js:  leetcode 112. 路径总和
         invertBinaryTree.js:  Leetcode: 226. 翻转二叉树
+        leaf-SimilarTrees.js:  Leetcode: 872. 叶子相似的树
         lowestCommonAncestorofaBinarySearchTree.js:  Leetcode: 235. 二叉搜索树的最近公共祖先
         maxDepth.js:  返回这个树的最大深度 (根节点到叶子节点的深度)
         maximumDepthofN-aryTree.js:  Leetcode: 559. N 叉树的最大深度
