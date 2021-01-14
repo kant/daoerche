@@ -144,6 +144,7 @@ dirTitleHandle(rootPath);
         diameterOfBinaryTree.js:  Leetcode: 543. 二叉树的直径
         findModeinBinarySearchTree.js:  Leetcode: 501. 二叉搜索树中的众数
         hasPathSum.js:  leetcode 112. 路径总和
+        increasingOrderSearchTree.js:  Leetcode: 897. 递增顺序查找树
         invertBinaryTree.js:  Leetcode: 226. 翻转二叉树
         leaf-SimilarTrees.js:  Leetcode: 872. 叶子相似的树
         lowestCommonAncestorofaBinarySearchTree.js:  Leetcode: 235. 二叉搜索树的最近公共祖先
