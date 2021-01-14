@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-loadash@^1.0.0:
-  version "1.0.0"
-  resolved "http://bnpm.byted.org/loadash/-/loadash-1.0.0.tgz#b92e54d809f3c225f4f9a9cfbaeae5b56de1ca9f"
-  integrity sha1-uS5U2AnzwiX0+anPuurltW3hyp8=
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz?cache=0&sync_timestamp=1597336053864&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
 
 typescript@^4.1.3:
   version "4.1.3"
