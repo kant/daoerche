@@ -155,6 +155,7 @@ dirTitleHandle(rootPath);
         minimumAbsoluteDifferenceinBST.js:  Leetcode: 530. 二叉搜索树的最小绝对差
         minimumDistanceBetweenBSTNodes.js:  Leetcode: 783. 二叉搜索树节点最小距离
         n-aryTreePreorderTraversal.js:  Leetcode: 589. N叉树的前序遍历
+        rangeSumofBST.js:  Leetcode: 938. 二叉搜索树的范围和
         searchinaBinarySearchTree.js:  Leetcode: 700. 二叉搜索树中的搜索
         secondMinimumNodeInaBinaryTree.js:  Leetcode: 671. 二叉树中第二小的节点
         snakeTraverse.js:  蛇形遍历Tree结构
