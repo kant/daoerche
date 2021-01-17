@@ -199,5 +199,5 @@ vue
 webpack
     i18n: 手动撸一个i18n构建方案
 yarn
-    learn-yarn: 
+    learn-yarn: 学习yarn功能
 </pre>
