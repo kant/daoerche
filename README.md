@@ -162,6 +162,7 @@ dirTitleHandle(rootPath);
         subtreeofAnotherTree.js:  Leetcode: 572. 另一个树的子树
         sumOfLeftLeaves.js:  Leetcode: 404. 左叶子之和
         twoSumIV-InputisaBST.js:  Leetcode: 653. 两数之和 IV - 输入 BST
+        univaluedBinaryTree.js:  Leetcode: 965. 单值二叉树
     utils
         linkList.js:  构造链表的工具函数
         tree.js:  构造树的工具函数
