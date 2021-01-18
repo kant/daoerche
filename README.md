@@ -132,6 +132,7 @@ dirTitleHandle(rootPath);
         reverseWordsinaStringIII.js:  Leetcode: 557. 反转字符串中的单词 III
         wordPattern.js:  Leetcode: 290. 单词规律
     tree
+        LCOF.js:  Leetcode: 剑指 Offer 27. 二叉树的镜像
         N-aryTreePostorderTraversal.js:  Leetcode: 590. N叉树的后序遍历
         averageofLevelsinBinaryTree.js:  Leetcode: 637. 二叉树的层平均值
         balancedBinaryTree.js:  Leetcode: 110. 平衡二叉树
