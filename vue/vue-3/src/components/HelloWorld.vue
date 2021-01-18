@@ -22,12 +22,17 @@ export default {
     }
   },
   mounted() {
-    throw new Error('mounted error');
+    let a = k;
+    // throw new Error('mounted error');
   },
   watch: {
     count(pre, cur) {
       console.log('watch', pre, cur);
+    },
+    haha() {
+
     }
-  }
+  },
+  inject: ['aaa']
 }
 </script>

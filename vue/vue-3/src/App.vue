@@ -13,7 +13,6 @@ export default {
   },
   errorCaptured(...rest) {
     console.log('app errorCaptured', rest);
-    return false;
   }
 }
 </script>
