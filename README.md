@@ -163,6 +163,7 @@ dirTitleHandle(rootPath);
         snakeTraverse.js:  蛇形遍历Tree结构
         subtreeofAnotherTree.js:  Leetcode: 572. 另一个树的子树
         sumOfLeftLeaves.js:  Leetcode: 404. 左叶子之和
+        sumofRootToLeafBinaryNumbers.js:  Leetcode: 1022. 从根到叶的二进制数之和
         twoSumIV-InputisaBST.js:  Leetcode: 653. 两数之和 IV - 输入 BST
         univaluedBinaryTree.js:  Leetcode: 965. 单值二叉树
     utils
