@@ -183,6 +183,8 @@ library
     vue: 实现一个简单的Vue
 mobx
     exercise: Mobx学习
+performance
+    mini-performance: 
 react
     example-exercise: 深入react学习各种实践例子用法
     hooks: React Hooks 专项学习
