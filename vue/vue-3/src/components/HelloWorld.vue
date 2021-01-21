@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue'
 export default {
   name: 'HelloWorld',
   props: {
@@ -22,8 +23,13 @@ export default {
     }
   },
   mounted() {
-    let a = k;
+    // let a = k;
     // throw new Error('mounted error');
+    this.$http();
+    this._.appContext.config.globalProperties.$http = 123;
+    console.log(this.$http);
+    // const { ctx } = getCurrentInstance()
+    // ctx.appContext.config.globalProperties.$http = 123;
   },
   watch: {
     count(pre, cur) {

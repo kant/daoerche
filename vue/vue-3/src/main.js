@@ -9,4 +9,7 @@ app.config.errorHandler = (...rest) => {
 app.config.warnHandler = (...rest) => {
   console.log('config warnHandler', rest);
 }
+app.config.globalProperties.$http = () => {
+  console.log('globalProperties', '$http');
+}
 app.mount('#app')
