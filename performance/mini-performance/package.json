@@ -1,5 +1,6 @@
 {
   "name": "mini-performance",
+  "description": "写一个性能监控的库",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
