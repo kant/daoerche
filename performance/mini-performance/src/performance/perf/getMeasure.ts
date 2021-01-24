@@ -13,6 +13,8 @@ export function getMeasure(onReport: (metric: Metric) => void) {
   const entryHandler = (entry: PerformanceEntry) => {
     const measureName = entry.name;
     const perfName = getBusinessPointPerfName(measureName) as PerfName;
+    // 没有获取到perfName的话说明这个Measure不是通过本身库调用的，因此不上报
+    if (!perfName) return;
     metric = initMetric(perfName, entry);
 
     const report = bindReporter(onReport, metric);

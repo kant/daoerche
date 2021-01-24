@@ -11,6 +11,7 @@ import { getResource } from "./perf/getResource";
 import { getMeasure } from "./perf/getMeasure";
 import { getFCP } from "./perf/getFCP";
 import { startMeasure, endMeasure } from "./perf/profiling";
+import { setWhiteList, WhiteList } from "./utils";
 
 function perfMonitor(onReport: (metric: Metric) => void) {
   // 页面性能打点
@@ -31,7 +32,9 @@ function perfMonitor(onReport: (metric: Metric) => void) {
   getMeasure(onReport);
 }
 
-function perfReport(onReport: (metric: Metric) => void) {
+function perfReport(onReport: (metric: Metric) => void, whiteList?: WhiteList) {
+  // 设置白名单
+  setWhiteList(whiteList);
   window.addEventListener(
     'load',
     perfMonitor.bind(null, onReport),
@@ -39,4 +42,12 @@ function perfReport(onReport: (metric: Metric) => void) {
     );
 }
 
-export { startMeasure, endMeasure, perfReport }
+export {
+  startMeasure,
+  endMeasure,
+  perfReport,
+  Metric
+};
+
+export type { WhiteList };
+

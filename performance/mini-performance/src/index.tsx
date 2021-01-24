@@ -3,9 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { endMeasure, perfReport, startMeasure } from "./performance";
+import { endMeasure, perfReport, startMeasure, WhiteList } from "./performance";
 
-perfReport(console.log);
+const whiteList = {
+  'measure': [
+    /render/,
+    'react render'
+  ]
+};
+
+perfReport(console.log, whiteList);
 
 startMeasure('Render', 'react render');
 ReactDOM.render(
