@@ -5,6 +5,8 @@ interface WhiteList {
 }
 export type { WhiteList };
 
+let __prefWhiteList: WhiteList
+
 export function initMetric(perfName: PerfName, entry: PerformanceEntry): Metric {
   const metric = new Metric(perfName);
 
@@ -17,9 +19,9 @@ export function initMetric(perfName: PerfName, entry: PerformanceEntry): Metric 
 }
 
 // 设置白名单
-export function setWhiteList(whiteList?: WhiteList) {
+export const setWhiteList = (whiteList?: WhiteList) => {
   // 每个entryType对应一个白名单name的数组，可以传递字符串或者正则匹配，如果命中的话将不上报忽略该项
-  (window as any).__prefWhiteList = whiteList || {};
+  __prefWhiteList = whiteList || {};
 }
 
 // report成功返回true;
@@ -30,7 +32,7 @@ export function bindReporter(onReport: (metric: Metric) => void, metric: Metric)
       if (!metric.name && !metric.startTime && !metric.entryType && !metric.duration) return false;
 
       // 由白名单拦截掉的上报认为是成功的上报
-      const thisEntryTypeWhiteList = (window as any).__prefWhiteList[metric.entryType];
+      const thisEntryTypeWhiteList = __prefWhiteList[metric.entryType];
       if (thisEntryTypeWhiteList && thisEntryTypeWhiteList.length > 0) {
         let hit = false;
         for (let i = 0, len = thisEntryTypeWhiteList.length; i < len; i++) {
