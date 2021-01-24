@@ -16,7 +16,7 @@ export function getFCP(onReport: (metric: Metric) => void) {
     if (entry.name === 'first-contentful-paint') {
       if (po) {
         if (timer) window.clearTimeout(timer);
-        po.disconnect();
+        stopListening();
       }
 
       metric = initMetric('FCP', entry);

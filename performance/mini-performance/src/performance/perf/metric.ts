@@ -7,7 +7,11 @@ export type PerfName =
   | 'TTFB'
   | 'FetchTime'
   | 'DCL'
-  | 'DomReady';
+  | 'DomReady'
+  | 'Script'
+  | 'Link'
+  | 'Xmlhttprequest'
+  | 'Fetch';
 
 export class Metric {
   constructor(perfName: PerfName) {

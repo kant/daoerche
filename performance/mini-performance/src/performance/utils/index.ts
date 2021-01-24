@@ -1,4 +1,4 @@
-import { Metric, PerfName } from "..";
+import { Metric, PerfName } from "../perf/metric";
 
 export function initMetric(perfName: PerfName, entry: PerformanceEntry): Metric {
   const metric = new Metric(perfName);
