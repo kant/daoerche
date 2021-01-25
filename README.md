@@ -133,6 +133,7 @@ dirTitleHandle(rootPath);
         wordPattern.js:  Leetcode: 290. 单词规律
     tree
         LCOF.js:  Leetcode: 剑指 Offer 27. 二叉树的镜像
+        LCOF2.js:  Leetcode: 剑指 Offer 28. 对称的二叉树
         N-aryTreePostorderTraversal.js:  Leetcode: 590. N叉树的后序遍历
         averageofLevelsinBinaryTree.js:  Leetcode: 637. 二叉树的层平均值
         balancedBinaryTree.js:  Leetcode: 110. 平衡二叉树
