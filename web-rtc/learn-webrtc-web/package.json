@@ -1,0 +1,7 @@
+{
+  "name": "learn-webrtc-web",
+  "version": "1.0.0",
+  "description": "初步学习web-rtc基础",
+  "main": "index.js",
+  "license": "MIT"
+}
