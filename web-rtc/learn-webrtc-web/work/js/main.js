@@ -3,6 +3,7 @@
 var localConnection;
 var remoteConnection;
 var sendChannel;
+var sendChannel2;
 var receiveChannel;
 var pcConstraint;
 var dataConstraint;
@@ -39,6 +40,8 @@ function createConnection() {
 
   sendChannel = localConnection.createDataChannel('sendDataChannel',
     dataConstraint);
+  sendChannel2 = localConnection.createDataChannel('sendDataChannel2',
+    dataConstraint);
   trace('Created send data channel');
 
   localConnection.onicecandidate = iceCallback1;
@@ -69,6 +72,7 @@ function onCreateSessionDescriptionError(error) {
 function sendData() {
   var data = dataChannelSend.value;
   sendChannel.send(data);
+  sendChannel2.send('hahaha 我是附属的');
   trace('Sent Data: ' + data);
 }
 
@@ -153,6 +157,7 @@ function receiveChannelCallback(event) {
 
 function onReceiveMessageCallback(event) {
   trace('Received Message');
+  console.log('onReceiveMessageCallback', event);
   dataChannelReceive.value = event.data;
 }
 
